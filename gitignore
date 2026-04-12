@@ -1,0 +1,19 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node (caso use build tools no futuro)
+node_modules/
+npm-debug.log*
+
+# Temporários
+*.log
+*.tmp
+*.bak
