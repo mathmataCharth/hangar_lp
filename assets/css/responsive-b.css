@@ -1,0 +1,332 @@
+/* ═══════════════════════════════════════════════════════════
+   VERSÃO B — Responsividade Editorial (Simplificada)
+   Elementos complexos são removidos/simplificados no mobile:
+   - Hero card removido → hero full-width limpo
+   - Imagem de fundo da seção Problemas removida
+   - Logo central do Método removido
+   - Círculo central de "Para Quem É" removido
+   Mobile: ≤ 768px  |  Tablet: ≤ 1024px
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── HAMBURGER BUTTON ────────────────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+  position: relative;
+}
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all .3s cubic-bezier(.22,.61,.36,1);
+  transform-origin: center;
+}
+
+/* ─── OVERLAY quando menu aberto ─────────────────────────── */
+body.nav-open { overflow: hidden; }
+body.nav-open::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 140;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  TABLET — ≤ 1024px  (idêntico à Versão A)                 */
+/* ══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .container { padding: 0 24px; }
+
+  .hero__content { gap: 40px; padding: 110px 24px 70px; }
+
+  .consultoria__inner { gap: 48px; }
+  .consultoria__img { height: 380px; }
+
+  .metodo__grid { gap: 40px; }
+  .metodo-step:nth-child(1) { padding-right: 56px; padding-bottom: 56px; }
+  .metodo-step:nth-child(2) { padding-left:  56px; padding-bottom: 56px; }
+  .metodo-step:nth-child(3) { padding-right: 56px; padding-top:    56px; }
+  .metodo-step:nth-child(4) { padding-left:  56px; padding-top:    56px; }
+  .metodo__logo-center { width: 140px; height: 140px; }
+
+  .team-grid { gap: 20px; }
+
+  .solucoes__grid { grid-template-columns: repeat(2, 1fr); }
+  .solucao-card--large { grid-column: span 2; }
+
+  .para-quem__circle { width: 160px; height: 160px; }
+  .para-quem__circle-title { font-size: 18px; }
+
+  .porque__inner { gap: 48px; }
+  .porque__img { height: 420px; }
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  MOBILE — ≤ 768px                                         */
+/* ══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ─── GLOBAL ────────────────────────────────────────────── */
+  .container { padding: 0 20px; }
+
+  /* ─── NAVBAR (idêntico à Versão A) ─────────────────────── */
+  .navbar__hamburger { display: flex; }
+  .navbar__cta { display: none; }
+
+  .navbar__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(300px, 82vw);
+    height: 100vh;
+    background: #101217;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 28px 40px;
+    gap: 0;
+    transition: right .35s cubic-bezier(.22,.61,.36,1);
+    z-index: 150;
+    border-left: 1px solid rgba(255,255,255,.08);
+    box-shadow: -12px 0 40px rgba(0,0,0,.3);
+  }
+  .navbar__nav a {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    width: 100%;
+    color: rgba(255,255,255,.85);
+    display: block;
+    letter-spacing: -.01em;
+  }
+  .navbar__nav a:hover { color: #F1CD71; }
+
+  .navbar__nav::after {
+    content: 'Falar com especialista';
+    display: block;
+    margin-top: 28px;
+    background: #F1CD71;
+    color: #101217;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 20px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: .02em;
+  }
+
+  .navbar--open .navbar__nav { right: 0; }
+  .navbar--open .navbar__hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .navbar--open .navbar__hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .navbar--open .navbar__hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ─── HERO — card REMOVIDO, layout full-width ───────────── */
+  .hero { min-height: auto; }
+  .hero__content {
+    grid-template-columns: 1fr;
+    padding: 100px 20px 64px;
+    gap: 0;
+  }
+  .hero__overlay {
+    background: linear-gradient(180deg, rgba(16,18,23,.94) 40%, rgba(16,18,23,.82) 100%);
+  }
+  .hero__h1 { font-size: clamp(30px, 8vw, 42px); }
+  .hero__sub { max-width: 100%; font-size: 15px; }
+  .hero__actions { flex-direction: column; gap: 10px; }
+  .hero__actions .btn { width: 100%; justify-content: center; text-align: center; }
+  .hero__scroll { display: none; }
+
+  /* Card removido */
+  .hero__right { display: none; }
+
+  /* ─── PROBLEMAS — imagem de fundo REMOVIDA ──────────────── */
+  .problemas { padding: 56px 0 0; }
+  .problemas__header { margin-bottom: 36px; }
+
+  /* Imagem oculta */
+  .problemas__bg-img { display: none; }
+
+  .problemas__grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .problemas__col {
+    padding: 0 0 20px;
+    justify-content: flex-start;
+    gap: 10px;
+    background: transparent;
+  }
+  .problemas__col--right { align-items: flex-start; }
+
+  /* Cards viram lista com borda vermelha lateral */
+  .problema-item {
+    max-width: 100%;
+    flex-direction: row;
+    text-align: left;
+    border-left: 3px solid #A71011;
+    border-radius: 0 8px 8px 0;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  }
+  .problema-item--right {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .problemas__banner {
+    padding: 24px 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .problemas__banner-text {
+    font-size: clamp(16px, 4.5vw, 22px);
+    text-align: center;
+  }
+
+  /* ─── CONSULTORIA (idêntico à Versão A) ─────────────────── */
+  .consultoria { padding: 56px 0; }
+  .consultoria__inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .consultoria__img { height: 260px; }
+  .consultoria__img-badge {
+    bottom: -18px;
+    right: 16px;
+    max-width: 152px;
+    padding: 12px 16px;
+  }
+  .consultoria__img-badge strong { font-size: 20px; }
+
+  /* ─── MÉTODO — logo central REMOVIDO ───────────────────── */
+  .metodo { padding: 56px 0; }
+
+  .metodo__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    position: static;
+  }
+
+  /* Logo removido */
+  .metodo__logo-center { display: none; }
+
+  .metodo-step { min-height: auto; }
+  .metodo-step:nth-child(1),
+  .metodo-step:nth-child(2),
+  .metodo-step:nth-child(3),
+  .metodo-step:nth-child(4) {
+    padding: 24px 24px;
+  }
+
+  /* ─── QUEM SOMOS (idêntico à Versão A) ──────────────────── */
+  .quem-somos { padding: 56px 0; }
+  .quem-somos__intro { margin-bottom: 36px; }
+  .quem-somos__desc { font-size: 15px; }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .team-card__img { height: 190px; }
+  .team-card__body { padding: 18px; }
+  .team-card__name { font-size: 15px; }
+
+  /* ─── SOLUÇÕES (idêntico à Versão A) ────────────────────── */
+  .solucoes { padding: 56px 0; }
+  .solucoes__grid { grid-template-columns: 1fr; gap: 14px; }
+  .solucao-card--large { grid-column: span 1; }
+  .solucao-card__img { height: 160px; }
+  .solucao-card--large .solucao-card__img { height: 180px; }
+
+  /* ─── PARA QUEM — círculo central REMOVIDO ──────────────── */
+  .para-quem { padding: 56px 0; }
+  .para-quem__header { margin-bottom: 40px; }
+
+  .para-quem__layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100%;
+  }
+
+  /* Círculo removido */
+  .para-quem__center { display: none; }
+
+  /* Duas colunas viram dois grupos com título */
+  .para-quem__col {
+    gap: 20px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+  .para-quem__col:first-child { border-top: none; }
+  .para-quem__col--right { align-items: flex-start; }
+  .publico-item { max-width: 100%; text-align: left !important; }
+
+  /* ─── NÚMEROS (idêntico à Versão A) ─────────────────────── */
+  .numeros { padding: 56px 0; }
+  .numeros__grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 28px;
+  }
+  .numero-item { padding: 28px 16px; }
+  .numero-item__num { font-size: 38px; }
+  .numeros__banner { padding: 14px 20px; font-size: 14px; }
+
+  /* ─── LOGOS (idêntico à Versão A) ───────────────────────── */
+  .logos-section { padding: 36px 0; }
+  .logos-row { gap: 20px; }
+  .logo-item { font-size: 14px; }
+
+  /* ─── POR QUE HANGAR (idêntico à Versão A) ──────────────── */
+  .porque { padding: 56px 0; }
+  .porque__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .porque__img { height: 260px; }
+  .porque-item:hover { transform: none; }
+
+  /* ─── CTA FINAL (idêntico à Versão A) ───────────────────── */
+  .cta-final { padding: 64px 20px; }
+  .cta-final__title { font-size: clamp(26px, 7vw, 42px); }
+  .cta-final__sub { font-size: 15px; }
+  .cta-final__actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .cta-final__actions .btn,
+  .cta-final__actions .btn-gold-lg {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────────── */
+  .footer { padding: 24px 20px; }
+}
+
+/* ─── SMALL MOBILE — ≤ 480px ─────────────────────────────── */
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .hero__stat-num { font-size: 38px; }
+  .metodo-step__num { font-size: 38px; }
+}

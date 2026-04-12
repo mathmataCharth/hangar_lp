@@ -51,6 +51,39 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.numero-item').forEach(el => counterObserver.observe(el));
 
+/* ─── Hamburger menu ─────────────────────────────────────── */
+const hamburger = document.getElementById('navHamburger');
+const navbarEl  = document.getElementById('navbar');
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navbarEl.classList.toggle('navbar--open');
+    document.body.classList.toggle('nav-open', isOpen);
+    hamburger.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  });
+
+  // Fechar ao clicar em link do menu
+  document.querySelectorAll('.navbar__nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbarEl.classList.remove('navbar--open');
+      document.body.classList.remove('nav-open');
+      hamburger.setAttribute('aria-label', 'Abrir menu');
+    });
+  });
+
+  // Fechar ao clicar no overlay (body::after)
+  document.addEventListener('click', (e) => {
+    if (
+      navbarEl.classList.contains('navbar--open') &&
+      !navbarEl.contains(e.target)
+    ) {
+      navbarEl.classList.remove('navbar--open');
+      document.body.classList.remove('nav-open');
+      hamburger.setAttribute('aria-label', 'Abrir menu');
+    }
+  });
+}
+
 /* ─── Scroll suave para âncoras da navbar ────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
