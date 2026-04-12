@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hangar — Gestão Estratégica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --preto-hero:   #101217;
+  --navy-dark:    #363A4C;
+  --gold:         #F1CD71;
+  --gold-dark:    #d4a83c;
+  --off-white:    #F4F5FA;
+  --cream:        #F3F1ED;
+  --carvao:       #323134;
+  --vermelho:     #A71011;
+  --branco:       #FFFFFF;
+  --font:         'Plus Jakarta Sans', sans-serif;
+  --ease:         cubic-bezier(.22,.61,.36,1);
+}
+
+/* ─── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--carvao); background: var(--branco); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── UTILITY ─────────────────────────────────────────────── */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.gold { color: var(--gold); }
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* ─── SCROLL REVEAL ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(32px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+.delay-5 { transition-delay: .5s; }
+
+/* ─── BOTÕES ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all .22s var(--ease);
+  letter-spacing: .02em;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--preto-hero);
+  border-color: var(--gold);
+}
+.btn-gold:hover { background: #e8be52; border-color: #e8be52; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(241,205,113,.3); }
+.btn-outline {
+  background: transparent;
+  color: var(--branco);
+  border-color: rgba(255,255,255,.45);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+.btn-outline-dark {
+  background: transparent;
+  color: var(--carvao);
+  border-color: var(--carvao);
+}
+.btn-outline-dark:hover { background: var(--carvao); color: var(--branco); }
+.btn-gold-lg {
+  background: var(--gold);
+  color: var(--preto-hero);
+  border-color: var(--gold);
+  font-size: 15px;
+  padding: 16px 36px;
+}
+.btn-gold-lg:hover { background: #e8be52; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(241,205,113,.35); }
+
+/* ══════════════════════════════════════════════════════════ */
+/*  01. NAVBAR                                               */
+/* ══════════════════════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0;
+  transition: background .3s, box-shadow .3s;
+}
+.navbar.scrolled {
+  background: rgba(16,18,23,.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0,0,0,.3);
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--branco);
+  letter-spacing: -.01em;
+}
+.navbar__logo-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.navbar__logo-icon svg { width: 20px; height: 20px; }
+.navbar__nav { display: flex; align-items: center; gap: 32px; }
+.navbar__nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,.75);
+  transition: color .2s;
+}
+.navbar__nav a:hover { color: var(--gold); }
+.navbar__cta { margin-left: 8px; }
+
+/* ══════════════════════════════════════════════════════════ */
+/*  02. HERO                                                 */
+/* ══════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--preto-hero);
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=1600&q=80');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: .18;
+  transform: scale(1.04);
+  animation: heroZoom 12s ease-out forwards;
+}
+@keyframes heroZoom { to { transform: scale(1); opacity: .22; } }
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(16,18,23,.92) 45%, rgba(16,18,23,.55) 100%);
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 120px 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero__text { }
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) .2s forwards;
+}
+.hero__eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1.5px;
+  background: var(--gold);
+}
+.hero__h1 {
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--branco);
+  letter-spacing: -.02em;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease) .4s forwards;
+}
+.hero__h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero__sub {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.65);
+  max-width: 460px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease) .6s forwards;
+}
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease) .8s forwards;
+}
+.hero__right {
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  animation: fadeUp .9s var(--ease) .7s forwards;
+}
+.hero__card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(241,205,113,.25);
+  border-radius: 12px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+  max-width: 340px;
+  width: 100%;
+}
+.hero__card-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.hero__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.hero__stat-num {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--branco);
+  line-height: 1;
+}
+.hero__stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  max-width: 120px;
+  line-height: 1.4;
+}
+.hero__divider {
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 20px 0;
+}
+.hero__items { display: flex; flex-direction: column; gap: 14px; }
+.hero__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.5;
+}
+.hero__item-dot {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 6px;
+}
+.hero__scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp .6s var(--ease) 1.2s forwards;
+  cursor: pointer;
+}
+.hero__scroll span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+}
+.hero__scroll-line {
+  width: 1.5px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  03. PROBLEMAS                                            */
+/* ══════════════════════════════════════════════════════════ */
+.problemas {
+  background: var(--off-white);
+  padding: 96px 0 0;
+}
+.problemas__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.problemas__title {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--carvao);
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+.problemas__title em {
+  font-style: normal;
+  color: var(--gold-dark);
+}
+.problemas__grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0 48px;
+  align-items: start;
+  margin-bottom: 56px;
+}
+.problemas__col { display: flex; flex-direction: column; gap: 18px; }
+.problemas__col--right { align-items: flex-end; }
+.problema-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 300px;
+}
+.problema-item--right {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.problema-icon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: rgba(167,16,17,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.problema-icon svg { width: 12px; height: 12px; }
+.problema-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--carvao);
+  line-height: 1.5;
+}
+.problemas__center-img {
+  display: flex;
+  justify-content: center;
+}
+.problemas__center-img img {
+  width: 280px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.15);
+}
+.problemas__banner {
+  background: var(--gold);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.problemas__banner-icon svg { width: 28px; height: 28px; color: var(--preto-hero); }
+.problemas__banner-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--preto-hero);
+  letter-spacing: -.01em;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  04. CONSULTORIA                                          */
+/* ══════════════════════════════════════════════════════════ */
+.consultoria {
+  padding: 96px 0;
+  background: var(--branco);
+}
+.consultoria__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.consultoria__img-wrap { position: relative; }
+.consultoria__img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.consultoria__img-badge {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: var(--navy-dark);
+  color: var(--branco);
+  padding: 20px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 180px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.2);
+}
+.consultoria__img-badge strong { display: block; font-size: 28px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+.consultoria__text { }
+.consultoria__title {
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 800;
+  color: var(--carvao);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin-bottom: 12px;
+}
+.consultoria__subtitle {
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 300;
+  color: var(--carvao);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin-bottom: 40px;
+}
+.diferenciais { display: flex; flex-direction: column; gap: 28px; }
+.diferencial {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.diferencial__icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: rgba(241,205,113,.12);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diferencial__icon svg { width: 22px; height: 22px; color: var(--gold-dark); }
+.diferencial__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--carvao);
+  margin-bottom: 4px;
+}
+.diferencial__desc {
+  font-size: 14px;
+  color: #6b6b70;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  05. MÉTODO                                               */
+/* ══════════════════════════════════════════════════════════ */
+.metodo {
+  background: var(--navy-dark);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.metodo::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(241,205,113,.08);
+}
+.metodo::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -60px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(241,205,113,.06);
+}
+.metodo__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.metodo__title {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--branco);
+  letter-spacing: -.02em;
+}
+.metodo__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.metodo-step {
+  background: rgba(255,255,255,.03);
+  padding: 48px 40px;
+  transition: background .25s;
+  cursor: default;
+}
+.metodo-step:hover { background: rgba(241,205,113,.05); }
+.metodo-step__num {
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(241,205,113,.15);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -.03em;
+  transition: color .25s;
+}
+.metodo-step:hover .metodo-step__num { color: rgba(241,205,113,.3); }
+.metodo-step__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 12px;
+  letter-spacing: -.01em;
+}
+.metodo-step__desc {
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.65;
+}
+.metodo-step__tag {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(241,205,113,.3);
+  padding-bottom: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  06. QUEM SOMOS                                           */
+/* ══════════════════════════════════════════════════════════ */
+.quem-somos {
+  padding: 96px 0;
+  background: var(--off-white);
+}
+.quem-somos__intro {
+  max-width: 760px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+.quem-somos__title {
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 800;
+  color: var(--carvao);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.quem-somos__desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #5a5a60;
+}
+.quem-somos__tagline {
+  margin: 28px auto;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--carvao);
+  letter-spacing: -.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.quem-somos__tagline::before, .quem-somos__tagline::after {
+  content: '';
+  height: 1.5px;
+  width: 48px;
+  background: var(--gold-dark);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.team-card {
+  background: var(--branco);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.12); }
+.team-card__img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(20%);
+  transition: filter .4s;
+}
+.team-card:hover .team-card__img { filter: grayscale(0%); }
+.team-card__body { padding: 24px; }
+.team-card__role {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+.team-card__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--carvao);
+  margin-bottom: 10px;
+  letter-spacing: -.01em;
+}
+.team-card__bio {
+  font-size: 13px;
+  color: #7a7a82;
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  07. SOLUÇÕES                                             */
+/* ══════════════════════════════════════════════════════════ */
+.solucoes {
+  background: var(--preto-hero);
+  padding: 96px 0;
+}
+.solucoes__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.solucoes__title {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--branco);
+  letter-spacing: -.02em;
+}
+.solucoes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.solucao-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: border-color .3s, transform .3s var(--ease);
+  cursor: default;
+}
+.solucao-card:hover { border-color: rgba(241,205,113,.4); transform: translateY(-4px); }
+.solucao-card--large {
+  grid-column: span 2;
+}
+.solucao-card__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  opacity: .45;
+  transition: opacity .4s;
+}
+.solucao-card--large .solucao-card__img { height: 260px; }
+.solucao-card:hover .solucao-card__img { opacity: .6; }
+.solucao-card__body { padding: 24px; }
+.solucao-card__tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.solucao-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 10px;
+  letter-spacing: -.01em;
+}
+.solucao-card__desc {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  line-height: 1.65;
+}
+.solucao-card__list {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.solucao-card__list li {
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+.solucao-card__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  08. PARA QUEM É                                          */
+/* ══════════════════════════════════════════════════════════ */
+.para-quem {
+  background: var(--cream);
+  padding: 96px 0;
+}
+.para-quem__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.para-quem__title {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--carvao);
+  letter-spacing: -.02em;
+}
+.para-quem__layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0 48px;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.para-quem__col { display: flex; flex-direction: column; gap: 36px; }
+.para-quem__col--right { align-items: flex-end; text-align: right; }
+.publico-item { max-width: 240px; }
+.publico-item__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--carvao);
+  margin-bottom: 6px;
+  letter-spacing: -.01em;
+}
+.publico-item__desc {
+  font-size: 13px;
+  color: #7a7a82;
+  line-height: 1.6;
+}
+.para-quem__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.para-quem__circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid var(--gold);
+  box-shadow: 0 0 0 12px rgba(241,205,113,.1);
+  text-align: center;
+  padding: 20px;
+}
+.para-quem__circle-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 6px;
+}
+.para-quem__circle-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  09. NÚMEROS                                              */
+/* ══════════════════════════════════════════════════════════ */
+.numeros {
+  background: var(--off-white);
+  padding: 80px 0;
+}
+.numeros__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--gold);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+.numero-item {
+  background: var(--branco);
+  padding: 36px 28px;
+  text-align: center;
+  transition: background .25s;
+}
+.numero-item:hover { background: rgba(241,205,113,.06); }
+.numero-item__num {
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: -.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.numero-item__plus { color: var(--gold-dark); }
+.numero-item__label {
+  font-size: 13px;
+  color: #7a7a82;
+  line-height: 1.5;
+  max-width: 140px;
+  margin: 0 auto;
+}
+.numeros__banner {
+  background: var(--gold);
+  padding: 18px 40px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--preto-hero);
+  letter-spacing: -.01em;
+}
+.logos-section {
+  padding: 48px 0;
+  background: var(--off-white);
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+.logos-section__label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #aaaaB0;
+  margin-bottom: 32px;
+}
+.logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.logo-item {
+  font-size: 18px;
+  font-weight: 800;
+  color: #c4c4cc;
+  letter-spacing: -.02em;
+  transition: color .2s;
+}
+.logo-item:hover { color: var(--carvao); }
+
+/* ══════════════════════════════════════════════════════════ */
+/*  10. POR QUE HANGAR                                       */
+/* ══════════════════════════════════════════════════════════ */
+.porque {
+  background: var(--cream);
+  padding: 96px 0;
+}
+.porque__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.porque__title {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  color: var(--carvao);
+  letter-spacing: -.02em;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+.porque__subtitle {
+  font-size: 16px;
+  color: #7a7a82;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.porque__items { display: flex; flex-direction: column; gap: 16px; }
+.porque-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: var(--branco);
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+  transition: box-shadow .25s, transform .25s;
+}
+.porque-item:hover { box-shadow: 0 8px 28px rgba(0,0,0,.08); transform: translateX(4px); }
+.porque-item__icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: rgba(241,205,113,.15);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.porque-item__icon svg { width: 18px; height: 18px; color: var(--gold-dark); }
+.porque-item__text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--carvao);
+  line-height: 1.55;
+}
+.porque__img-wrap {
+  position: relative;
+}
+.porque__img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  11. CTA FINAL                                            */
+/* ══════════════════════════════════════════════════════════ */
+.cta-final {
+  background: var(--navy-dark);
+  padding: 100px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(241,205,113,.08);
+}
+.cta-final::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(241,205,113,.04);
+}
+.cta-final__inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+.cta-final__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+}
+.cta-final__title {
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 800;
+  color: var(--branco);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.cta-final__sub {
+  font-size: 16px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+.cta-final__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/*  FOOTER                                                   */
+/* ══════════════════════════════════════════════════════════ */
+.footer {
+  background: var(--preto-hero);
+  padding: 28px 32px;
+  text-align: center;
+}
+.footer__text {
+  font-size: 13px;
+  color: rgba(255,255,255,.3);
+}
+.footer__text a { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ──────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#" class="navbar__logo">
+      <div class="navbar__logo-icon">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 14V6L10 2L17 6V14L10 18L3 14Z" stroke="#101217" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M10 2V18M3 6L17 14M17 6L3 14" stroke="#101217" stroke-width="1.2" opacity=".5"/>
+        </svg>
+      </div>
+      HANGAR
+    </a>
+    <nav class="navbar__nav">
+      <a href="#metodo">Método</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="btn btn-gold navbar__cta">Falar com especialista</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="hero__text">
+      <span class="hero__eyebrow">Consultoria Estratégica</span>
+      <h1 class="hero__h1">Gestão para empresas que querem crescer com <em>consistência e rentabilidade.</em></h1>
+      <p class="hero__sub">Experiência construída na prática e hoje aplicada para impulsionar negócios em diversos segmentos por meio de método, informação e direcionamento estratégico.</p>
+      <div class="hero__actions">
+        <a href="#contato" class="btn btn-gold">Falar com um especialista</a>
+        <a href="#solucoes" class="btn btn-outline">Conheça nossas soluções</a>
+      </div>
+    </div>
+    <div class="hero__right">
+      <div class="hero__card">
+        <div class="hero__card-title">Resultados comprovados</div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">150</span>
+          <span class="hero__stat-label">projetos e consultorias entregues</span>
+        </div>
+        <div class="hero__divider"></div>
+        <div class="hero__items">
+          <div class="hero__item">
+            <div class="hero__item-dot"></div>
+            Estratégia com visibilidade real
+          </div>
+          <div class="hero__item">
+            <div class="hero__item-dot"></div>
+            Gestão orientada por dados e números que importam
+          </div>
+          <div class="hero__item">
+            <div class="hero__item-dot"></div>
+            Implementação junto ao cliente, lado a lado
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" onclick="document.getElementById('problemas').scrollIntoView({behavior:'smooth'})">
+    <div class="hero__scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ─── PROBLEMAS ───────────────────────────────────────── -->
+<section class="problemas" id="problemas">
+  <div class="container">
+    <div class="problemas__header reveal">
+      <h2 class="problemas__title">Empresas crescem. <em>A lucratividade e o caixa nem sempre acompanham.</em></h2>
+    </div>
+    <div class="problemas__grid">
+      <div class="problemas__col reveal reveal-left">
+        <div class="problema-item">
+          <div class="problema-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="problema-text">Falta de clareza nos números e no desempenho real do negócio</span>
+        </div>
+        <div class="problema-item">
+          <div class="problema-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="problema-text">Dificuldade de retenção de talentos e formação de equipes</span>
+        </div>
+        <div class="problema-item">
+          <div class="problema-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="problema-text">Ausência de indicadores operacionais e financeiros confiáveis</span>
+        </div>
+      </div>
+      <div class="problemas__center-img reveal">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Empresário em reunião estratégica">
+      </div>
+      <div class="problemas__col problemas__col--right reveal reveal-right">
+        <div class="problema-item problema-item--right">
+          <div class="problema-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="problema-text">Crescimento desorganizado que compromete a rentabilidade</span>
+        </div>
+        <div class="problema-item problema-item--right">
+          <div class="problema-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="problema-text">Margem que não se sustenta mesmo com faturamento em alta</span>
+        </div>
+        <div class="problema-item problema-item--right">
+          <div class="problema-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="problema-text">Dificuldade de escalar sem perder controle da operação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="problemas__banner reveal">
+    <div class="problemas__banner-icon">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 4L4 9V14C4 19.5 8.5 24.6 14 26C19.5 24.6 24 19.5 24 14V9L14 4Z" stroke="#101217" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 14L13 17L18 12" stroke="#101217" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="problemas__banner-text">Organização não é burocracia. É o que dá liberdade para crescer.</span>
+  </div>
+</section>
+
+<!-- ─── CONSULTORIA ──────────────────────────────────────── -->
+<section class="consultoria" id="consultoria">
+  <div class="container">
+    <div class="consultoria__inner">
+      <div class="consultoria__img-wrap reveal reveal-left">
+        <img class="consultoria__img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Reunião de consultoria estratégica">
+        <div class="consultoria__img-badge">
+          <strong>+15</strong>
+          segmentos atendidos com profundidade
+        </div>
+      </div>
+      <div class="consultoria__text reveal reveal-right">
+        <span class="section-label">Nossa abordagem</span>
+        <h2 class="consultoria__title">Consultoria de quem</h2>
+        <p class="consultoria__subtitle">já viveu as decisões que hoje conduz.</p>
+        <div class="diferenciais">
+          <div class="diferencial delay-1 reveal">
+            <div class="diferencial__icon">
+              <svg viewBox="0 0 22 22" fill="none"><path d="M3 11L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <p class="diferencial__title">Estratégia com visibilidade real.</p>
+              <p class="diferencial__desc">Nada de plano que fica no PPT. Cada diretriz é construída com dados e projetada para execução imediata.</p>
+            </div>
+          </div>
+          <div class="diferencial delay-2 reveal">
+            <div class="diferencial__icon">
+              <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="12" width="4" height="7" stroke="currentColor" stroke-width="1.8" rx="1"/><rect x="9" y="8" width="4" height="11" stroke="currentColor" stroke-width="1.8" rx="1"/><rect x="15" y="4" width="4" height="15" stroke="currentColor" stroke-width="1.8" rx="1"/></svg>
+            </div>
+            <div>
+              <p class="diferencial__title">Gestão orientada por dados.</p>
+              <p class="diferencial__desc">Construímos indicadores e painéis que revelam a saúde real do negócio, não apenas o que aparece no faturamento.</p>
+            </div>
+          </div>
+          <div class="diferencial delay-3 reveal">
+            <div class="diferencial__icon">
+              <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M11 7V11L14 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <p class="diferencial__title">Implementação junto ao cliente.</p>
+              <p class="diferencial__desc">Não entregamos relatório e saímos. Estamos lado a lado na execução — nas reuniões, nos processos, nas decisões.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MÉTODO ───────────────────────────────────────────── -->
+<section class="metodo" id="metodo">
+  <div class="container">
+    <div class="metodo__header reveal">
+      <span class="section-label" style="text-align:center;display:block;">Como trabalhamos</span>
+      <h2 class="metodo__title">Nosso método</h2>
+    </div>
+    <div class="metodo__grid">
+      <div class="metodo-step reveal delay-1">
+        <div class="metodo-step__num">01</div>
+        <div class="metodo-step__title">Diagnóstico Estratégico</div>
+        <div class="metodo-step__desc">Análise do modelo de negócio, mapeamento de processos, identificação de oportunidades e indicadores operacionais que sustentam as decisões.</div>
+        <span class="metodo-step__tag">Fundação</span>
+      </div>
+      <div class="metodo-step reveal delay-2">
+        <div class="metodo-step__num">02</div>
+        <div class="metodo-step__title">Direcionamento</div>
+        <div class="metodo-step__desc">Definição de prioridades, metas e plano de ação com critérios claros. O que atacar primeiro e por quê — sem dispersão de energia.</div>
+        <span class="metodo-step__tag">Estratégia</span>
+      </div>
+      <div class="metodo-step reveal delay-3">
+        <div class="metodo-step__num">03</div>
+        <div class="metodo-step__title">Estruturação</div>
+        <div class="metodo-step__desc">Indicadores estratégicos, organização de processos, formatação de times e implantação de rotinas que sustentam o crescimento com controle.</div>
+        <span class="metodo-step__tag">Organização</span>
+      </div>
+      <div class="metodo-step reveal delay-4">
+        <div class="metodo-step__num">04</div>
+        <div class="metodo-step__title">Execução Assistida</div>
+        <div class="metodo-step__desc">Acompanhamento contínuo, análise de resultados e ajustes em tempo real. A consultoria não termina na entrega — termina quando o resultado aparece.</div>
+        <span class="metodo-step__tag">Resultado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUEM SOMOS ───────────────────────────────────────── -->
+<section class="quem-somos" id="equipe">
+  <div class="container">
+    <div class="quem-somos__intro reveal">
+      <span class="section-label" style="text-align:center;display:block;">A empresa</span>
+      <h2 class="quem-somos__title">Quem somos</h2>
+      <p class="quem-somos__desc">A <strong>Hangar</strong> é uma consultoria estratégica e financeira especializada em apoiar empresas privadas que desejam crescer com consistência e melhorar suas rentabilidades. Atuamos para <strong>destruir o potencial dos negócios</strong>, mobilizar equipes e conduzir transformações estruturais nas dimensões estratégica, operacional e financeira.</p>
+    </div>
+    <div class="quem-somos__tagline reveal">
+      Levamos negócios ao próximo nível
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal delay-1">
+        <img class="team-card__img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Fábio Lima Ferreira">
+        <div class="team-card__body">
+          <div class="team-card__role">Diretor Técnico de Projetos</div>
+          <div class="team-card__name">Fábio Lima Ferreira</div>
+          <p class="team-card__bio">Especialista em gestão financeira e estratégica com mais de 15 anos de experiência em empresas de médio e grande porte. Conduz diagnósticos de negócios e estruturação de processos.</p>
+        </div>
+      </div>
+      <div class="team-card reveal delay-2">
+        <img class="team-card__img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Michel Monteiro">
+        <div class="team-card__body">
+          <div class="team-card__role">Consultor Associado</div>
+          <div class="team-card__name">Michel Monteiro</div>
+          <p class="team-card__bio">Profundo conhecimento em finanças de negócios e operações. Foca em dados financeiros e análise de desempenho para construir estratégias orientadas a resultado.</p>
+        </div>
+      </div>
+      <div class="team-card reveal delay-3">
+        <img class="team-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Viviany Bezerra">
+        <div class="team-card__body">
+          <div class="team-card__role">Consultora Associada</div>
+          <div class="team-card__name">Viviany Bezerra</div>
+          <p class="team-card__bio">Especialista em desenvolvimento empresarial e estratégias de expansão. Combina visão de mercado com abordagem prática para transformar operações.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUÇÕES ─────────────────────────────────────────── -->
+<section class="solucoes" id="solucoes">
+  <div class="container">
+    <div class="solucoes__header reveal">
+      <span class="section-label" style="text-align:center;display:block;">O que fazemos</span>
+      <h2 class="solucoes__title">Nossas soluções</h2>
+    </div>
+    <div class="solucoes__grid">
+      <div class="solucao-card solucao-card--large reveal delay-1">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1000&q=80" alt="Gestão Estratégica">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">01 — Core</div>
+          <div class="solucao-card__title">Gestão Estratégica</div>
+          <div class="solucao-card__desc">Planejamento estratégico completo, OKRs, governança corporativa e estruturação de indicadores que guiam decisões com clareza.</div>
+          <ul class="solucao-card__list">
+            <li>Diagnóstico e mapeamento de oportunidades</li>
+            <li>Implantação de OKRs e metas</li>
+            <li>Estruturação de governança</li>
+          </ul>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-2">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1526628953301-3cd7e2b8bcc8?w=600&q=80" alt="Fusões e Aquisições">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">02</div>
+          <div class="solucao-card__title">Fusões e Aquisições</div>
+          <div class="solucao-card__desc">Assessoria na preparação, negociação e acompanhamento de transações de M&A.</div>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-3">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=600&q=80" alt="Gestão Financeira">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">03</div>
+          <div class="solucao-card__title">Gestão Financeira</div>
+          <div class="solucao-card__desc">Reestruturação financeira, análise de custos, margens e elaboração de DRE gerencial.</div>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-2">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="CFO as a Service">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">04</div>
+          <div class="solucao-card__title">CFO as a Service</div>
+          <div class="solucao-card__desc">Diretoria financeira estratégica de alto nível sem o custo de um executivo CLT.</div>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-3">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Processos">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">05</div>
+          <div class="solucao-card__title">Processos</div>
+          <div class="solucao-card__desc">Mapeamento, otimização e documentação de processos operacionais para ganho de eficiência e escala.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PARA QUEM ────────────────────────────────────────── -->
+<section class="para-quem">
+  <div class="container">
+    <div class="para-quem__header reveal">
+      <span class="section-label" style="text-align:center;display:block;">Atuação</span>
+      <h2 class="para-quem__title">Para quem é</h2>
+    </div>
+    <div class="para-quem__layout">
+      <div class="para-quem__col reveal reveal-left">
+        <div class="publico-item">
+          <div class="publico-item__title">Negócio em fase de crescimento</div>
+          <p class="publico-item__desc">Empresas que faturam bem mas sentem que a operação não acompanha o ritmo de expansão.</p>
+        </div>
+        <div class="publico-item">
+          <div class="publico-item__title">Empresas familiares que buscam amadurecimento de gestão</div>
+          <p class="publico-item__desc">Transição de uma gestão intuitiva para uma gestão profissional e estruturada.</p>
+        </div>
+      </div>
+      <div class="para-quem__center reveal">
+        <div class="para-quem__circle">
+          <span class="para-quem__circle-label">Para quem é</span>
+          <span class="para-quem__circle-title">Hangar</span>
+        </div>
+      </div>
+      <div class="para-quem__col para-quem__col--right reveal reveal-right">
+        <div class="publico-item" style="text-align:right;">
+          <div class="publico-item__title">Organizações que buscam direcionamento estratégico para crescer de forma saudável</div>
+          <p class="publico-item__desc">Gestão com método, clareza de metas e governança consistente.</p>
+        </div>
+        <div class="publico-item" style="text-align:right;">
+          <div class="publico-item__title">Empresários que não possuem dados e informações de qualidade</div>
+          <p class="publico-item__desc">Construímos a base analítica que falta para tomar decisões com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NÚMEROS ──────────────────────────────────────────── -->
+<section class="numeros">
+  <div class="container">
+    <div class="numeros__grid reveal">
+      <div class="numero-item">
+        <div class="numero-item__num">150</div>
+        <div class="numero-item__label">projetos e consultorias</div>
+      </div>
+      <div class="numero-item">
+        <div class="numero-item__num"><span class="numero-item__plus">+</span>15</div>
+        <div class="numero-item__label">segmentos atendidos</div>
+      </div>
+      <div class="numero-item">
+        <div class="numero-item__num">50<span style="font-size:30px">%</span></div>
+        <div class="numero-item__label">de incremento médio de resultado</div>
+      </div>
+      <div class="numero-item">
+        <div class="numero-item__num"><span class="numero-item__plus">+</span>20</div>
+        <div class="numero-item__label">clientes ativos</div>
+      </div>
+    </div>
+    <div class="numeros__banner reveal">
+      Gestão pautada em dados e em resultados concretos.
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOGOS ────────────────────────────────────────────── -->
+<section class="logos-section">
+  <div class="container">
+    <p class="logos-section__label">Empresas que já confiaram na Hangar</p>
+    <div class="logos-row reveal">
+      <span class="logo-item">ALPHORRIA</span>
+      <span class="logo-item">apoá</span>
+      <span class="logo-item">ARTGRAF</span>
+      <span class="logo-item">CAMYS</span>
+      <span class="logo-item">FIEMO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POR QUE HANGAR ───────────────────────────────────── -->
+<section class="porque" id="sobre">
+  <div class="container">
+    <div class="porque__inner">
+      <div class="reveal reveal-left">
+        <span class="section-label">Diferenciais</span>
+        <h2 class="porque__title">Por que a Hangar?</h2>
+        <p class="porque__subtitle">Não somos uma consultoria de prateleira. Cada projeto é tratado como único porque cada negócio é único.</p>
+        <div class="porque__items">
+          <div class="porque-item reveal delay-1">
+            <div class="porque-item__icon">
+              <svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="porque-item__text">Não entregamos relatório — entregamos resultados mensuráveis e acompanhamento contínuo.</span>
+          </div>
+          <div class="porque-item reveal delay-2">
+            <div class="porque-item__icon">
+              <svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="porque-item__text">Não vendemos metodologia genérica — adaptamos ao seu contexto, desafios e capacidade real de execução.</span>
+          </div>
+          <div class="porque-item reveal delay-3">
+            <div class="porque-item__icon">
+              <svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="porque-item__text">Equipe sênior em todas as etapas — nenhum projeto é delegado para juniores sem supervisão direta.</span>
+          </div>
+          <div class="porque-item reveal delay-4">
+            <div class="porque-item__icon">
+              <svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="porque-item__text">http://hangar.app (especifique os links reais do cliente aqui)</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-right">
+        <img class="porque__img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Time Hangar em reunião">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ────────────────────────────────────────── -->
+<section class="cta-final" id="contato">
+  <div class="cta-final__inner">
+    <span class="cta-final__eyebrow">Pronto para o próximo nível?</span>
+    <h2 class="cta-final__title">Não deixe sua empresa ficar menor que o negócio.</h2>
+    <p class="cta-final__sub">Agende agora uma conversa com nossos especialistas e descubra o que está travando o crescimento da sua empresa.</p>
+    <div class="cta-final__actions">
+      <a href="#" class="btn btn-gold-lg">Agendar uma conversa</a>
+      <a href="#" class="btn btn-outline">Ver nossas soluções</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────── -->
+<footer class="footer">
+  <p class="footer__text">© 2025 Hangar Consultoria. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// ── Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  observer.observe(el);
+});
+
+// ── Counter animation
+function animateCounter(el, target, duration = 1800) {
+  let start = 0;
+  const step = () => {
+    start += target / (duration / 16);
+    el.textContent = Math.min(Math.floor(start), target);
+    if (start < target) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const numEl = entry.target.querySelector('.numero-item__num');
+      const text = numEl.textContent.replace(/\D/g, '');
+      const target = parseInt(text);
+      const prefix = numEl.querySelector('.numero-item__plus') ? '<span class="numero-item__plus">+</span>' : '';
+      const suffix = numEl.textContent.includes('%') ? '<span style="font-size:30px">%</span>' : '';
+      let count = 0;
+      const interval = setInterval(() => {
+        count += Math.ceil(target / 80);
+        if (count >= target) { count = target; clearInterval(interval); }
+        numEl.innerHTML = prefix + count + suffix;
+      }, 20);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.numero-item').forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
