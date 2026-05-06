@@ -1,13 +1,14 @@
 /* ─── TOKENS ─────────────────────────────────────────────── */
 :root {
-  --preto-hero:   #101217;
-  --navy-dark:    #363A4C;
-  --gold:         #F1CD71;
-  --gold-dark:    #d4a83c;
-  --off-white:    #F4F5FA;
-  --cream:        #F3F1ED;
-  --carvao:       #323134;
-  --vermelho:     #A71011;
+  /* ── Paleta oficial Hangar (brand v1) ── */
+  --preto-hero:   #101217;        /* hero background — mantido */
+  --navy-dark:    #31374f;        /* azul brand: #31374f */
+  --gold:         #f3cd71;        /* amarelo brand: #f3cd71 */
+  --gold-dark:    #c9a227;        /* amarelo escuro para hover/accents */
+  --off-white:    #f4f2ee;        /* off-white brand: #f4f2ee */
+  --cream:        #f4f2ee;        /* unificado com off-white brand */
+  --carvao:       #31374f;        /* texto escuro → usa o navy brand */
+  --vermelho:     #A71011;        /* vermelho — seção problemas */
   --branco:       #FFFFFF;
   --font:         'Plus Jakarta Sans', sans-serif;
   --ease:         cubic-bezier(.22,.61,.36,1);
