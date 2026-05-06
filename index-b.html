@@ -208,8 +208,11 @@
         </div>
       </div>
 
-      <!-- imagem central — substituir src depois -->
-      <div class="metodo__logo-center"></div>
+      <!-- ícone central Hangar -->
+      <div class="metodo__logo-center">
+        <img src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Hangar-IE.png"
+             alt="Hangar" class="metodo__logo-img">
+      </div>
 
     </div>
   </div>
@@ -224,31 +227,50 @@
       <p class="quem-somos__desc">A <strong>Hangar</strong> é uma consultoria estratégica e financeira especializada em apoiar empresas privadas que desejam crescer com consistência e melhorar suas rentabilidades. Atuamos para mobilizar equipes e conduzir transformações estruturais nas dimensões estratégica, operacional e financeira.</p>
     </div>
     <div class="quem-somos__tagline reveal">Levamos negócios ao próximo nível</div>
-    <div class="team-grid">
-      <div class="team-card reveal delay-1">
-        <img class="team-card__img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Fábio Lima Ferreira">
-        <div class="team-card__body">
-          <div class="team-card__role">Diretor Técnico de Projetos</div>
-          <div class="team-card__name">Fábio Lima Ferreira</div>
-          <p class="team-card__bio">Especialista em gestão financeira e estratégica com mais de 15 anos de experiência em empresas de médio e grande porte.</p>
+    <div class="team-carousel" id="teamCarousel">
+      <div class="team-carousel__track-wrapper">
+        <div class="team-carousel__track">
+          <div class="team-card">
+            <img class="team-card__img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Fábio Lima Ferreira">
+            <div class="team-card__body">
+              <div class="team-card__role">Diretor Técnico de Projetos</div>
+              <div class="team-card__name">Fábio Lima Ferreira</div>
+              <p class="team-card__bio">Especialista em gestão financeira e estratégica com mais de 15 anos de experiência em empresas de médio e grande porte.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-card__img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Michel Monteiro">
+            <div class="team-card__body">
+              <div class="team-card__role">Consultor Associado</div>
+              <div class="team-card__name">Michel Monteiro</div>
+              <p class="team-card__bio">Profundo conhecimento em finanças de negócios e operações. Foca em dados financeiros e análise de desempenho.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Viviany Bezerra">
+            <div class="team-card__body">
+              <div class="team-card__role">Consultora Associada</div>
+              <div class="team-card__name">Viviany Bezerra</div>
+              <p class="team-card__bio">Especialista em desenvolvimento empresarial e estratégias de expansão com abordagem prática.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-card__img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Carlos Andrade">
+            <div class="team-card__body">
+              <div class="team-card__role">Consultor Sênior</div>
+              <div class="team-card__name">Carlos Andrade</div>
+              <p class="team-card__bio">Liderança em projetos de reestruturação e crescimento com foco em geração de valor sustentável.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="team-card reveal delay-2">
-        <img class="team-card__img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Michel Monteiro">
-        <div class="team-card__body">
-          <div class="team-card__role">Consultor Associado</div>
-          <div class="team-card__name">Michel Monteiro</div>
-          <p class="team-card__bio">Profundo conhecimento em finanças de negócios e operações. Foca em dados financeiros e análise de desempenho.</p>
-        </div>
-      </div>
-      <div class="team-card reveal delay-3">
-        <img class="team-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Viviany Bezerra">
-        <div class="team-card__body">
-          <div class="team-card__role">Consultora Associada</div>
-          <div class="team-card__name">Viviany Bezerra</div>
-          <p class="team-card__bio">Especialista em desenvolvimento empresarial e estratégias de expansão com abordagem prática.</p>
-        </div>
-      </div>
+      <button class="team-carousel__btn team-carousel__btn--prev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="team-carousel__btn team-carousel__btn--next" aria-label="Próximo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="team-carousel__dots" id="teamDots"></div>
     </div>
   </div>
 </section>

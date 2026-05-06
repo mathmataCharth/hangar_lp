@@ -58,7 +58,9 @@ body.nav-open::after {
   .metodo-step:nth-child(4) { padding-left:  56px; padding-top:    56px; }
   .metodo__logo-center { width: 140px; height: 140px; }
 
-  .team-grid { gap: 20px; }
+  /* Team carousel — tablet mostra 2 cards (controlado via JS) */
+  .team-carousel__btn--prev { left: -16px; }
+  .team-carousel__btn--next { right: -16px; }
 
   .solucoes__grid { grid-template-columns: repeat(2, 1fr); }
   .solucao-card--large { grid-column: span 2; }
@@ -257,11 +259,9 @@ body.nav-open::after {
   .quem-somos__intro { margin-bottom: 36px; }
   .quem-somos__desc { font-size: 15px; }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-  .team-card__img { height: 190px; }
+  /* Carousel mobile: 1 card visível, botões ocultos → usar swipe + dots */
+  .team-carousel__btn { display: none; }
+  .team-card__img { height: 220px; }
   .team-card__body { padding: 18px; }
   .team-card__name { font-size: 15px; }
 
@@ -337,7 +337,6 @@ body.nav-open::after {
 
 /* ─── SMALL MOBILE — ≤ 480px ─────────────────────────────── */
 @media (max-width: 480px) {
-  .team-grid { grid-template-columns: 1fr; }
   .hero__stat-num { font-size: 38px; }
   .metodo-step__num { font-size: 38px; }
 }

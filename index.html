@@ -208,8 +208,11 @@
         </div>
       </div>
 
-      <!-- imagem central — substituir src depois -->
-      <div class="metodo__logo-center"></div>
+      <!-- ícone central Hangar -->
+      <div class="metodo__logo-center">
+        <img src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Hangar-IE.png"
+             alt="Hangar" class="metodo__logo-img">
+      </div>
 
     </div>
   </div>
@@ -224,31 +227,50 @@
       <p class="quem-somos__desc">A <strong>Hangar</strong> é uma consultoria estratégica e financeira especializada em apoiar empresas privadas que desejam crescer com consistência e melhorar suas rentabilidades. Atuamos para mobilizar equipes e conduzir transformações estruturais nas dimensões estratégica, operacional e financeira.</p>
     </div>
     <div class="quem-somos__tagline reveal">Levamos negócios ao próximo nível</div>
-    <div class="team-grid">
-      <div class="team-card reveal delay-1">
-        <img class="team-card__img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Fábio Lima Ferreira">
-        <div class="team-card__body">
-          <div class="team-card__role">Diretor Técnico de Projetos</div>
-          <div class="team-card__name">Fábio Lima Ferreira</div>
-          <p class="team-card__bio">Especialista em gestão financeira e estratégica com mais de 15 anos de experiência em empresas de médio e grande porte.</p>
+    <div class="team-carousel" id="teamCarousel">
+      <div class="team-carousel__track-wrapper">
+        <div class="team-carousel__track">
+          <div class="team-card">
+            <img class="team-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/time-hangar-3.jpg" alt="Fábio Lima Ferreira">
+            <div class="team-card__body">
+              <div class="team-card__role">DIRETOR EXECUTIVO</div>
+              <div class="team-card__name">Fábio Lima Ferreira</div>
+              <p class="team-card__bio">Graduado em Administração pela UFMG, com MBA em Finanças pelo IBMEC. Tem carreira sólida em gestão estratégica e finanças, atuando por mais de 15 anos na liderança das áreas de finanças e estratégia de empresas dos setores industriais, de serviços e do mercado financeiro.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/time-hangar-2-scaled.jpg" alt="Michel Monteiro">
+            <div class="team-card__body">
+              <div class="team-card__role">CONSULTOR ASSOCIADO</div>
+              <div class="team-card__name">Michel Monteiro</div>
+              <p class="team-card__bio">Graduado em Economia pela UFMG e pós-graduando em Gestão de Negócios pela Fundação Dom Cabral. Vasta experiência na atuação de consultorias em gestão, com foco nas áreas financeira e econômica, atuando em projetos de M&A, valuation e estudos de viabilidade econômica. Tem experiência na análise de desempenho, estruturação de soluções estratégicas e apoio à tomada de decisões.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/time-hangar-1.jpg" alt="Viviany Bezerra">
+            <div class="team-card__body">
+              <div class="team-card__role">CONSULTORA ASSOCIADA</div>
+              <div class="team-card__name">Viviany Bezerra</div>
+              <p class="team-card__bio">Graduada em Gestão da Qualidade, com especialização em Estatística pela UFMG. Possui larga experiência em projetos de consultoria em gestão, contemplando diagnóstico econômico e modelagens financeiras, mapeamento e desenvolvimento de processos, implantação e revitalização de ERPs, além implantar metodologias de desdobramento de estratégias, como OKRs e BSC – Balanced Scorecard</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/time-hangar-4.jpg" alt="Julia Porto">
+            <div class="team-card__body">
+              <div class="team-card__role">HEAD COMERCIAL</div>
+              <div class="team-card__name">Julia Porto</div>
+              <p class="team-card__bio">Head Comercial no Grupo Hangar, Julia Porto é graduada em Administração pela UFMG e Relações Internacionais pela PUC-MG. Com perfil analítico e multidisciplinar, tem sólida experiência em análise de mercado, negociação e projeções econômicas. Especialista no desenho de jornadas de venda e processos Lead-to-Cash, foca na otimização do funil para garantir previsibilidade e alta performance comercial. Fluente em inglês e espanhol.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="team-card reveal delay-2">
-        <img class="team-card__img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Michel Monteiro">
-        <div class="team-card__body">
-          <div class="team-card__role">Consultor Associado</div>
-          <div class="team-card__name">Michel Monteiro</div>
-          <p class="team-card__bio">Profundo conhecimento em finanças de negócios e operações. Foca em dados financeiros e análise de desempenho.</p>
-        </div>
-      </div>
-      <div class="team-card reveal delay-3">
-        <img class="team-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Viviany Bezerra">
-        <div class="team-card__body">
-          <div class="team-card__role">Consultora Associada</div>
-          <div class="team-card__name">Viviany Bezerra</div>
-          <p class="team-card__bio">Especialista em desenvolvimento empresarial e estratégias de expansão com abordagem prática.</p>
-        </div>
-      </div>
+      <button class="team-carousel__btn team-carousel__btn--prev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="team-carousel__btn team-carousel__btn--next" aria-label="Próximo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="team-carousel__dots" id="teamDots"></div>
     </div>
   </div>
 </section>
@@ -262,48 +284,77 @@
     </div>
     <div class="solucoes__grid">
       <div class="solucao-card solucao-card--large reveal delay-1">
-        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1000&q=80" alt="Gestão Estratégica">
+        <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-5.png" alt="Gestão Estratégica">
         <div class="solucao-card__body">
           <div class="solucao-card__tag">01 — Core</div>
           <div class="solucao-card__title">Gestão Estratégica</div>
           <div class="solucao-card__desc">Planejamento estratégico completo, OKRs, governança corporativa e estruturação de indicadores.</div>
           <ul class="solucao-card__list">
-            <li>Diagnóstico e mapeamento de oportunidades</li>
-            <li>Implantação de OKRs e metas</li>
-            <li>Estruturação de governança</li>
+            <li>Plano de negócios</li>
+            <li>Planejamento estratégico</li>
+            <li>Desdobramento de metas (BSC e OKR)</li>
+            <li>Governança corporativa</li>
           </ul>
         </div>
       </div>
       <div class="solucao-card reveal delay-2">
-        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1526628953301-3cd7e2b8bcc8?w=600&q=80" alt="Fusões e Aquisições">
+        <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-2.png" alt="Fusões e Aquisições">
         <div class="solucao-card__body">
           <div class="solucao-card__tag">02</div>
           <div class="solucao-card__title">Fusões e Aquisições</div>
           <div class="solucao-card__desc">Assessoria na preparação, negociação e acompanhamento de transações de M&A.</div>
+          <ul class="solucao-card__list">
+            <li>Valuation</li>
+            <li>Prospecção e negociação</li>
+            <li>Elaboração de teaser e pitch</li>
+            <li>Acompanhamento de due diligence</li>
+          </ul>
         </div>
       </div>
       <div class="solucao-card reveal delay-3">
-        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=600&q=80" alt="Gestão Financeira">
+        <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-1.png" alt="Gestão Financeira">
         <div class="solucao-card__body">
           <div class="solucao-card__tag">03</div>
           <div class="solucao-card__title">Gestão Financeira</div>
           <div class="solucao-card__desc">Reestruturação financeira, análise de custos, margens e elaboração de DRE gerencial.</div>
+          <ul class="solucao-card__list">
+            <li>Planejamento e controle orçamentário</li>
+            <li>Reestruturação de endividamento</li>
+            <li>Análise de investimentos</li>
+            <li>Gestão de fluxo de caixa</li>
+            <li>Implantação e acompanhamento de indicadores econômicos e financeiros</li>
+          </ul>
         </div>
       </div>
       <div class="solucao-card reveal delay-2">
-        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="CFO as a Service">
+        <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-3.png" alt="CFO as a Service">
         <div class="solucao-card__body">
           <div class="solucao-card__tag">04</div>
           <div class="solucao-card__title">CFO as a Service</div>
           <div class="solucao-card__desc">Diretoria financeira estratégica de alto nível sem o custo de um executivo CLT.</div>
+          <ul class="solucao-card__list">
+            <li>Consolidação e análise dos indicadores econômicos e financeiros</li>
+            <li>Gestão do endividamento e liquidez</li>
+            <li>Interface com bancos, contabilidade, investidores e acionistas</li>
+            <li>Reports mensais contemplando DRE, Balanço Patrimonial e Fluxo de Caixa</li>
+            <li>Geração e análise dos KPIs operacionais estratégicos</li>
+            <li>Garantia da governança</li>
+            <li>Liderança da equipe financeira, contemplando tesouraria, contas a receber e a pagar</li>
+          </ul>
         </div>
       </div>
       <div class="solucao-card reveal delay-3">
-        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Processos">
+        <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-4.png" alt="Processos">
         <div class="solucao-card__body">
           <div class="solucao-card__tag">05</div>
           <div class="solucao-card__title">Processos</div>
           <div class="solucao-card__desc">Mapeamento, otimização e documentação de processos operacionais para ganho de eficiência e escala.</div>
+          <ul class="solucao-card__list">
+            <li>Mapeamento e redesenho de processos</li>
+            <li>Eliminação de retrabalho e desperdício</li>
+            <li>Operação ágil e escalável</li>
+            <li>Motor consistente de crescimento</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -353,7 +404,7 @@
   <div class="container">
     <div class="numeros__grid reveal">
       <div class="numero-item">
-        <div class="numero-item__num">150</div>
+        <div class="numero-item__num">300</div>
         <div class="numero-item__label">projetos e consultorias</div>
       </div>
       <div class="numero-item">
@@ -362,11 +413,11 @@
       </div>
       <div class="numero-item">
         <div class="numero-item__num">50<span style="font-size:30px">%</span></div>
-        <div class="numero-item__label">de incremento médio de resultado</div>
+        <div class="numero-item__label">de incremento médio na margem líquida dos clientes</div>
       </div>
       <div class="numero-item">
         <div class="numero-item__num"><span class="numero-item__plus">+</span>20</div>
-        <div class="numero-item__label">clientes ativos</div>
+        <div class="numero-item__label">colaboradores e parceiros capacitados</div>
       </div>
     </div>
     <div class="numeros__banner reveal">Gestão pautada em dados e em resultados concretos.</div>
