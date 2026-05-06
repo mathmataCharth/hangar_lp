@@ -102,22 +102,13 @@ a { text-decoration: none; color: inherit; }
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--branco);
-  letter-spacing: -.01em;
 }
-.navbar__logo-icon {
-  width: 34px;
-  height: 34px;
-  background: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
+.navbar__logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
-.navbar__logo-icon svg { width: 20px; height: 20px; }
 .navbar__nav { display: flex; align-items: center; gap: 32px; }
 .navbar__nav a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.75); transition: color .2s; }
 .navbar__nav a:hover { color: var(--gold); }
