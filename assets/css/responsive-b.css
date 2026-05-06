@@ -241,6 +241,17 @@ body.nav-open::after {
     padding: 24px 24px;
   }
 
+  /* Reordenar cards 03 e 04: título/número ANTES da descrição */
+  .metodo-step:nth-child(3) .metodo-step__row,
+  .metodo-step:nth-child(4) .metodo-step__row {
+    order: -1;
+    margin-bottom: 12px;
+  }
+  .metodo-step:nth-child(3) .metodo-step__desc,
+  .metodo-step:nth-child(4) .metodo-step__desc { text-align: left; }
+  .metodo-step:nth-child(4) .metodo-step__title--right { text-align: left; }
+  .metodo-step:nth-child(4) .metodo-step__desc--right { text-align: left; }
+
   /* ─── QUEM SOMOS (idêntico à Versão A) ──────────────────── */
   .quem-somos { padding: 56px 0; }
   .quem-somos__intro { margin-bottom: 36px; }

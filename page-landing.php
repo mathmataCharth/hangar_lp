@@ -1,0 +1,475 @@
+<?php
+/**
+ * Template Name: Hangar Landing Page
+ * Template Post Type: page
+ *
+ * Template customizado para a landing page da Hangar.
+ * Bypassa o header/footer do WordPress mantendo wp_head()
+ * e wp_footer() para que plugins (Elementor Popups, LGPD, etc.)
+ * continuem funcionando normalmente.
+ */
+
+// Garante que apenas WordPress pode carregar este arquivo
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+// Caminho base para os assets da LP dentro do tema
+$lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?php wp_title( '—', true, 'right' ); ?>Hangar — Gestão Estratégica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="<?php echo esc_url( $lp_assets ); ?>/css/style.css">
+<link rel="stylesheet" href="<?php echo esc_url( $lp_assets ); ?>/css/responsive-a.css">
+<?php wp_head(); // NÃO REMOVER — necessário para Elementor Popups, LGPD e plugins ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); // NÃO REMOVER — necessário para alguns plugins de LGPD ?>
+
+<!-- ─── NAVBAR ──────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar__logo">
+      <div class="navbar__logo-icon">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 14V6L10 2L17 6V14L10 18L3 14Z" stroke="#101217" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M10 2V18M3 6L17 14M17 6L3 14" stroke="#101217" stroke-width="1.2" opacity=".5"/>
+        </svg>
+      </div>
+      HANGAR
+    </a>
+    <nav class="navbar__nav">
+      <a href="#metodo">Método</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="btn btn-gold navbar__cta">Falar com especialista</a>
+    <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="hero__text">
+      <span class="hero__eyebrow">Consultoria Estratégica</span>
+      <h1 class="hero__h1">Gestão para empresas que querem crescer com <em>consistência e rentabilidade.</em></h1>
+      <p class="hero__sub">Experiência construída na prática e hoje aplicada para impulsionar negócios em diversos segmentos por meio de método, informação e direcionamento estratégico.</p>
+      <div class="hero__actions">
+        <a href="#contato" class="btn btn-gold">Falar com um especialista</a>
+        <a href="#solucoes" class="btn btn-outline">Conheça nossas soluções</a>
+      </div>
+    </div>
+    <div class="hero__right">
+      <div class="hero__card">
+        <div class="hero__card-title">Resultados comprovados</div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">150</span>
+          <span class="hero__stat-label">projetos e consultorias entregues</span>
+        </div>
+        <div class="hero__divider"></div>
+        <div class="hero__items">
+          <div class="hero__item"><div class="hero__item-dot"></div>Estratégia com visibilidade real</div>
+          <div class="hero__item"><div class="hero__item-dot"></div>Gestão orientada por dados e números que importam</div>
+          <div class="hero__item"><div class="hero__item-dot"></div>Implementação junto ao cliente, lado a lado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" onclick="document.getElementById('problemas').scrollIntoView({behavior:'smooth'})">
+    <div class="hero__scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ─── PROBLEMAS ───────────────────────────────────────── -->
+<section class="problemas" id="problemas">
+  <div class="container">
+    <div class="problemas__header reveal">
+      <h2 class="problemas__title">Empresas crescem. <em>A lucratividade e o caixa nem sempre acompanham.</em></h2>
+    </div>
+    <div class="problemas__grid">
+      <img class="problemas__bg-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80" alt="Reunião estratégica">
+      <div class="problemas__col reveal reveal-left">
+        <div class="problema-item">
+          <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="problema-text">Falta de clareza nos números e no desempenho real do negócio</span>
+        </div>
+        <div class="problema-item">
+          <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="problema-text">Dificuldade de retenção de talentos e formação de equipes</span>
+        </div>
+        <div class="problema-item">
+          <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="problema-text">Ausência de indicadores operacionais e financeiros confiáveis</span>
+        </div>
+      </div>
+      <div class="problemas__col problemas__col--right reveal reveal-right">
+        <div class="problema-item problema-item--right">
+          <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="problema-text">Crescimento desorganizado que compromete a rentabilidade</span>
+        </div>
+        <div class="problema-item problema-item--right">
+          <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="problema-text">Margem que não se sustenta mesmo com faturamento em alta</span>
+        </div>
+        <div class="problema-item problema-item--right">
+          <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="problema-text">Dificuldade de escalar sem perder controle da operação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="problemas__banner reveal">
+    <div class="problemas__banner-icon">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 4L4 9V14C4 19.5 8.5 24.6 14 26C19.5 24.6 24 19.5 24 14V9L14 4Z" stroke="#101217" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 14L13 17L18 12" stroke="#101217" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="problemas__banner-text">Organização não é burocracia. É o que dá liberdade para crescer.</span>
+  </div>
+</section>
+
+<!-- ─── CONSULTORIA ──────────────────────────────────────── -->
+<section class="consultoria" id="consultoria">
+  <div class="container">
+    <div class="consultoria__inner">
+      <div class="consultoria__img-wrap reveal reveal-left">
+        <img class="consultoria__img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Reunião de consultoria estratégica">
+        <div class="consultoria__img-badge">
+          <strong>+15</strong>
+          segmentos atendidos com profundidade
+        </div>
+      </div>
+      <div class="consultoria__text reveal reveal-right">
+        <span class="section-label">Nossa abordagem</span>
+        <h2 class="consultoria__title">Consultoria de quem</h2>
+        <p class="consultoria__subtitle">já viveu as decisões que hoje conduz.</p>
+        <div class="diferenciais">
+          <div class="diferencial delay-1 reveal">
+            <div class="diferencial__icon">
+              <svg viewBox="0 0 22 22" fill="none"><path d="M3 11L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <p class="diferencial__title">Estratégia com visibilidade real.</p>
+              <p class="diferencial__desc">Nada de plano que fica no PPT. Cada diretriz é construída com dados e projetada para execução imediata.</p>
+            </div>
+          </div>
+          <div class="diferencial delay-2 reveal">
+            <div class="diferencial__icon">
+              <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="12" width="4" height="7" stroke="currentColor" stroke-width="1.8" rx="1"/><rect x="9" y="8" width="4" height="11" stroke="currentColor" stroke-width="1.8" rx="1"/><rect x="15" y="4" width="4" height="15" stroke="currentColor" stroke-width="1.8" rx="1"/></svg>
+            </div>
+            <div>
+              <p class="diferencial__title">Gestão orientada por dados.</p>
+              <p class="diferencial__desc">Construímos indicadores e painéis que revelam a saúde real do negócio, não apenas o que aparece no faturamento.</p>
+            </div>
+          </div>
+          <div class="diferencial delay-3 reveal">
+            <div class="diferencial__icon">
+              <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M11 7V11L14 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <p class="diferencial__title">Implementação junto ao cliente.</p>
+              <p class="diferencial__desc">Não entregamos relatório e saímos. Estamos lado a lado na execução — nas reuniões, nos processos, nas decisões.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MÉTODO ───────────────────────────────────────────── -->
+<section class="metodo" id="metodo">
+  <div class="container">
+    <div class="metodo__header reveal">
+      <h2 class="metodo__title">Nosso método</h2>
+    </div>
+    <div class="metodo__grid">
+      <div class="metodo-step reveal delay-1">
+        <div class="metodo-step__row">
+          <div class="metodo-step__title">Diagnóstico<br>Estratégico</div>
+          <div class="metodo-step__num">01.</div>
+        </div>
+        <div class="metodo-step__desc">Análise do modelo de negócio, maturidade de gestão, saúde financeira e indicadores operacionais</div>
+      </div>
+      <div class="metodo-step reveal delay-2">
+        <div class="metodo-step__row">
+          <div class="metodo-step__num">02.</div>
+          <div class="metodo-step__title metodo-step__title--right">Direcionamento</div>
+        </div>
+        <div class="metodo-step__desc metodo-step__desc--right">Definição de prioridades, metas e plano de ação.</div>
+      </div>
+      <div class="metodo-step reveal delay-3">
+        <div class="metodo-step__desc">Direcionamento e indicadores estratégicos, organização de processos, governança e ritos de gestão</div>
+        <div class="metodo-step__row">
+          <div class="metodo-step__title">Estruturação</div>
+          <div class="metodo-step__num">03.</div>
+        </div>
+      </div>
+      <div class="metodo-step reveal delay-4">
+        <div class="metodo-step__desc metodo-step__desc--right">Acompanhamento, geração e análise de informações e ajustes estratégicos</div>
+        <div class="metodo-step__row">
+          <div class="metodo-step__num">04.</div>
+          <div class="metodo-step__title metodo-step__title--right">Execução<br>Assistida</div>
+        </div>
+      </div>
+      <div class="metodo__logo-center"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUEM SOMOS ───────────────────────────────────────── -->
+<section class="quem-somos" id="equipe">
+  <div class="container">
+    <div class="quem-somos__intro reveal">
+      <span class="section-label" style="text-align:center;display:block;">A empresa</span>
+      <h2 class="quem-somos__title">Quem somos</h2>
+      <p class="quem-somos__desc">A <strong>Hangar</strong> é uma consultoria estratégica e financeira especializada em apoiar empresas privadas que desejam crescer com consistência e melhorar suas rentabilidades. Atuamos para mobilizar equipes e conduzir transformações estruturais nas dimensões estratégica, operacional e financeira.</p>
+    </div>
+    <div class="quem-somos__tagline reveal">Levamos negócios ao próximo nível</div>
+    <div class="team-grid">
+      <div class="team-card reveal delay-1">
+        <img class="team-card__img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Fábio Lima Ferreira">
+        <div class="team-card__body">
+          <div class="team-card__role">Diretor Técnico de Projetos</div>
+          <div class="team-card__name">Fábio Lima Ferreira</div>
+          <p class="team-card__bio">Especialista em gestão financeira e estratégica com mais de 15 anos de experiência em empresas de médio e grande porte.</p>
+        </div>
+      </div>
+      <div class="team-card reveal delay-2">
+        <img class="team-card__img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Michel Monteiro">
+        <div class="team-card__body">
+          <div class="team-card__role">Consultor Associado</div>
+          <div class="team-card__name">Michel Monteiro</div>
+          <p class="team-card__bio">Profundo conhecimento em finanças de negócios e operações. Foca em dados financeiros e análise de desempenho.</p>
+        </div>
+      </div>
+      <div class="team-card reveal delay-3">
+        <img class="team-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Viviany Bezerra">
+        <div class="team-card__body">
+          <div class="team-card__role">Consultora Associada</div>
+          <div class="team-card__name">Viviany Bezerra</div>
+          <p class="team-card__bio">Especialista em desenvolvimento empresarial e estratégias de expansão com abordagem prática.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUÇÕES ─────────────────────────────────────────── -->
+<section class="solucoes" id="solucoes">
+  <div class="container">
+    <div class="solucoes__header reveal">
+      <span class="section-label" style="text-align:center;display:block;">O que fazemos</span>
+      <h2 class="solucoes__title">Nossas soluções</h2>
+    </div>
+    <div class="solucoes__grid">
+      <div class="solucao-card solucao-card--large reveal delay-1">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1000&q=80" alt="Gestão Estratégica">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">01 — Core</div>
+          <div class="solucao-card__title">Gestão Estratégica</div>
+          <div class="solucao-card__desc">Planejamento estratégico completo, OKRs, governança corporativa e estruturação de indicadores.</div>
+          <ul class="solucao-card__list">
+            <li>Diagnóstico e mapeamento de oportunidades</li>
+            <li>Implantação de OKRs e metas</li>
+            <li>Estruturação de governança</li>
+          </ul>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-2">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1526628953301-3cd7e2b8bcc8?w=600&q=80" alt="Fusões e Aquisições">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">02</div>
+          <div class="solucao-card__title">Fusões e Aquisições</div>
+          <div class="solucao-card__desc">Assessoria na preparação, negociação e acompanhamento de transações de M&A.</div>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-3">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=600&q=80" alt="Gestão Financeira">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">03</div>
+          <div class="solucao-card__title">Gestão Financeira</div>
+          <div class="solucao-card__desc">Reestruturação financeira, análise de custos, margens e elaboração de DRE gerencial.</div>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-2">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="CFO as a Service">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">04</div>
+          <div class="solucao-card__title">CFO as a Service</div>
+          <div class="solucao-card__desc">Diretoria financeira estratégica de alto nível sem o custo de um executivo CLT.</div>
+        </div>
+      </div>
+      <div class="solucao-card reveal delay-3">
+        <img class="solucao-card__img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Processos">
+        <div class="solucao-card__body">
+          <div class="solucao-card__tag">05</div>
+          <div class="solucao-card__title">Processos</div>
+          <div class="solucao-card__desc">Mapeamento, otimização e documentação de processos operacionais para ganho de eficiência e escala.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PARA QUEM ────────────────────────────────────────── -->
+<section class="para-quem">
+  <div class="container">
+    <div class="para-quem__header reveal">
+      <span class="section-label" style="text-align:center;display:block;">Atuação</span>
+      <h2 class="para-quem__title">Para quem é</h2>
+    </div>
+    <div class="para-quem__layout">
+      <div class="para-quem__col reveal reveal-left">
+        <div class="publico-item">
+          <div class="publico-item__title">Negócio em fase de crescimento</div>
+          <p class="publico-item__desc">Empresas que faturam bem mas sentem que a operação não acompanha o ritmo de expansão.</p>
+        </div>
+        <div class="publico-item">
+          <div class="publico-item__title">Empresas familiares que buscam amadurecimento de gestão</div>
+          <p class="publico-item__desc">Transição de uma gestão intuitiva para uma gestão profissional e estruturada.</p>
+        </div>
+      </div>
+      <div class="para-quem__center reveal">
+        <div class="para-quem__circle">
+          <span class="para-quem__circle-label">Para quem é</span>
+          <span class="para-quem__circle-title">Hangar</span>
+        </div>
+      </div>
+      <div class="para-quem__col para-quem__col--right reveal reveal-right">
+        <div class="publico-item" style="text-align:right;">
+          <div class="publico-item__title">Organizações que buscam direcionamento estratégico para crescer de forma saudável</div>
+          <p class="publico-item__desc">Gestão com método, clareza de metas e governança consistente.</p>
+        </div>
+        <div class="publico-item" style="text-align:right;">
+          <div class="publico-item__title">Empresários que não possuem dados e informações de qualidade</div>
+          <p class="publico-item__desc">Construímos a base analítica que falta para tomar decisões com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NÚMEROS ──────────────────────────────────────────── -->
+<section class="numeros">
+  <div class="container">
+    <div class="numeros__grid reveal">
+      <div class="numero-item">
+        <div class="numero-item__num">150</div>
+        <div class="numero-item__label">projetos e consultorias</div>
+      </div>
+      <div class="numero-item">
+        <div class="numero-item__num"><span class="numero-item__plus">+</span>15</div>
+        <div class="numero-item__label">segmentos atendidos</div>
+      </div>
+      <div class="numero-item">
+        <div class="numero-item__num">50<span style="font-size:30px">%</span></div>
+        <div class="numero-item__label">de incremento médio de resultado</div>
+      </div>
+      <div class="numero-item">
+        <div class="numero-item__num"><span class="numero-item__plus">+</span>20</div>
+        <div class="numero-item__label">clientes ativos</div>
+      </div>
+    </div>
+    <div class="numeros__banner reveal">Gestão pautada em dados e em resultados concretos.</div>
+  </div>
+</section>
+
+<!-- ─── LOGOS ────────────────────────────────────────────── -->
+<section class="logos-section">
+  <div class="container">
+    <p class="logos-section__label">Empresas que já confiaram na Hangar</p>
+    <div class="logos-row reveal">
+      <span class="logo-item">ALPHORRIA</span>
+      <span class="logo-item">apoá</span>
+      <span class="logo-item">ARTGRAF</span>
+      <span class="logo-item">CAMYS</span>
+      <span class="logo-item">FIEMO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POR QUE HANGAR ───────────────────────────────────── -->
+<section class="porque" id="sobre">
+  <div class="container">
+    <div class="porque__inner">
+      <div class="reveal reveal-left">
+        <span class="section-label">Diferenciais</span>
+        <h2 class="porque__title">Por que a Hangar?</h2>
+        <p class="porque__subtitle">Não somos uma consultoria de prateleira. Cada projeto é tratado como único porque cada negócio é único.</p>
+        <div class="porque__items">
+          <div class="porque-item reveal delay-1">
+            <div class="porque-item__icon"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="porque-item__text">Não entregamos relatório — entregamos resultados mensuráveis e acompanhamento contínuo.</span>
+          </div>
+          <div class="porque-item reveal delay-2">
+            <div class="porque-item__icon"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="porque-item__text">Não vendemos metodologia genérica — adaptamos ao seu contexto, desafios e capacidade real de execução.</span>
+          </div>
+          <div class="porque-item reveal delay-3">
+            <div class="porque-item__icon"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="porque-item__text">Equipe sênior em todas as etapas — nenhum projeto é delegado para juniores sem supervisão direta.</span>
+          </div>
+          <div class="porque-item reveal delay-4">
+            <div class="porque-item__icon"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="porque-item__text">Metodologia própria testada em mais de 150 projetos em diferentes segmentos e portes de empresa.</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-right">
+        <img class="porque__img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Time Hangar em reunião">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL + FORMULÁRIO ELEMENTOR ─────────────────── -->
+<section class="cta-final" id="contato">
+  <div class="cta-final__inner">
+    <span class="cta-final__eyebrow">Pronto para o próximo nível?</span>
+    <h2 class="cta-final__title">Não deixe sua empresa ficar menor que o negócio.</h2>
+    <p class="cta-final__sub">Agende agora uma conversa com nossos especialistas e descubra o que está travando o crescimento da sua empresa.</p>
+
+    <?php
+    /**
+     * ─── ÁREA DO ELEMENTOR ───────────────────────────────
+     * the_content() é obrigatório para o Elementor funcionar.
+     * Aqui você arrasta o widget Formulário no editor Elementor
+     * e ele renderiza exatamente nesse ponto da página.
+     * ─────────────────────────────────────────────────────
+     */
+    if ( have_posts() ) :
+      while ( have_posts() ) :
+        the_post();
+        the_content();
+      endwhile;
+    else : ?>
+      <!-- Fallback se não houver conteúdo Elementor ainda -->
+      <div class="cta-final__actions">
+        <a href="mailto:contato@hangarinteligencia.com.br" class="btn btn-gold-lg">Agendar uma conversa</a>
+        <a href="#solucoes" class="btn btn-outline">Ver nossas soluções</a>
+      </div>
+    <?php endif; ?>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────── -->
+<footer class="footer">
+  <p class="footer__text">© <?php echo date('Y'); ?> Hangar Consultoria. Todos os direitos reservados.</p>
+</footer>
+
+<script src="<?php echo esc_url( $lp_assets ); ?>/js/main.js"></script>
+<?php wp_footer(); // NÃO REMOVER — necessário para Elementor Popups e LGPD ?>
+</body>
+</html>
