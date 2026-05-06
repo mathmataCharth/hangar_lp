@@ -94,7 +94,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 140px;
+  height: 80px;
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 32px;
