@@ -426,6 +426,120 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
   </div>
 </section>
 
+<!-- ─── DEPOIMENTOS ──────────────────────────────────────── -->
+<section class="depoimentos" id="depoimentos">
+  <div class="container">
+    <div class="depoimentos__header reveal">
+      <span class="section-label">O que dizem nossos clientes</span>
+      <h2 class="depoimentos__title">Resultados que <span class="gold">falam por si</span></h2>
+    </div>
+  </div>
+  <div class="depo-carousel" id="depoCarousel">
+    <div class="container">
+      <div class="depo-carousel__inner">
+        <div class="depo-carousel__track-wrapper">
+          <div class="depo-carousel__track">
+
+            <!-- Depoimento 1 -->
+            <div class="depo-card">
+              <div class="depo-card__quote">
+                <svg width="28" height="22" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M0 22V12.8L4.9 0H12.6L8.4 12.8H12.6V22H0ZM15.4 22V12.8L20.3 0H28L23.8 12.8H28V22H15.4Z"/></svg>
+              </div>
+              <p class="depo-card__text">Todo empresário tinha que ter um estrategista da Hangar participando do planejamento da empresa. Nós sempre achamos que sabemos tudo do nosso negócio. Até que vem um estrategista super competente e te aponta caminhos que você jamais imaginou. Esse é o Fábio e seu time. Há 6 anos é nosso consultor. Sem a atuação dificilmente minha empresa teria crescido o tanto que cresceu. Hoje chegamos a 8 dígitos de faturamento e crescimento constante todos os anos.</p>
+              <div class="depo-card__person">
+                <div class="depo-card__photo-wrap">
+                  <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-rafael.jpg" alt="Rafael Mayrink">
+                </div>
+                <div>
+                  <strong class="depo-card__name">Rafael Mayrink</strong>
+                  <span class="depo-card__role">CEO – NP Digital</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="depo-card">
+              <div class="depo-card__quote">
+                <svg width="28" height="22" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M0 22V12.8L4.9 0H12.6L8.4 12.8H12.6V22H0ZM15.4 22V12.8L20.3 0H28L23.8 12.8H28V22H15.4Z"/></svg>
+              </div>
+              <p class="depo-card__text">Um trabalho e construção de quase 6 anos com a Hangar foram cruciais para o amadurecimento estratégico e financeiro do meu grupo. Conhecimento e expertise, com insights precisos e soluções customizadas são grandes diferenciais. Além de análises detalhadas, eles me ajudaram a organizar e criar um plano sólido para alcançar meus objetivos de curto e longo prazo. Estou muito satisfeito com os resultados alcançados e seguro com toda orientação financeira e estratégica.</p>
+              <div class="depo-card__person">
+                <div class="depo-card__photo-wrap">
+                  <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-gustavo.jpg" alt="Gustavo Rabello">
+                </div>
+                <div>
+                  <strong class="depo-card__name">Gustavo Rabello</strong>
+                  <span class="depo-card__role">CEO – GOO Skinfood</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="depo-card">
+              <div class="depo-card__quote">
+                <svg width="28" height="22" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M0 22V12.8L4.9 0H12.6L8.4 12.8H12.6V22H0ZM15.4 22V12.8L20.3 0H28L23.8 12.8H28V22H15.4Z"/></svg>
+              </div>
+              <p class="depo-card__text">É com grande satisfação que compartilho minha experiência de parceria profissional com a Hangar. Essa relação se tornou um alicerce crucial para nossas decisões estratégicas e financeiras na empresa. Uma característica que merece destaque é o profundo engajamento da consultoria em relação a todas as nossas demandas, mesmo aquelas que estavam fora do escopo inicialmente estabelecido. Isso reflete o compromisso da Hangar em ir além, garantindo que todas as áreas sejam atendidas de forma integral.</p>
+              <div class="depo-card__person">
+                <div class="depo-card__photo-wrap">
+                  <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-chris.jpg" alt="Chris Biagioni">
+                </div>
+                <div>
+                  <strong class="depo-card__name">Chris Biagioni</strong>
+                  <span class="depo-card__role">Fundadora – Viagens Especiais</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 4 -->
+            <div class="depo-card">
+              <div class="depo-card__quote">
+                <svg width="28" height="22" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M0 22V12.8L4.9 0H12.6L8.4 12.8H12.6V22H0ZM15.4 22V12.8L20.3 0H28L23.8 12.8H28V22H15.4Z"/></svg>
+              </div>
+              <p class="depo-card__text">O trabalho da Hangar fez toda a diferença para nós do Grupo Escalar. Nos ajudou a profissionalizar a parte financeira e criar seriedade na parte estratégica do negócio. Mentorados por eles, criamos um conselho consultivo que trouxe ótimas decisões para a empresa. Eles também nos apresentaram a metodologia OKRs, e outras métricas que realmente impulsionaram o nosso desempenho. Graças às orientações e mentorias semanais, seguimos um caminho claro e dobramos de tamanho em um curto intervalo de tempo.</p>
+              <div class="depo-card__person">
+                <div class="depo-card__photo-wrap">
+                  <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-andre.jpg" alt="André Albergaria">
+                </div>
+                <div>
+                  <strong class="depo-card__name">André Albergaria</strong>
+                  <span class="depo-card__role">Diretor Comercial – Grupo Escalar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 5 -->
+            <div class="depo-card">
+              <div class="depo-card__quote">
+                <svg width="28" height="22" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M0 22V12.8L4.9 0H12.6L8.4 12.8H12.6V22H0ZM15.4 22V12.8L20.3 0H28L23.8 12.8H28V22H15.4Z"/></svg>
+              </div>
+              <p class="depo-card__text">Desde nossa parceria com a Hangar, a ZapSign experimentou uma transformação na gestão financeira. Sua expertise em modelagem financeira e estratégia, aliada à implementação eficaz de OKRs, permitiu um acompanhamento correto do nosso desempenho, de acordo com as melhores práticas de mercado, e solidificou a nossa estrutura financeira. Com sua abordagem personalizada e orientações consistentes, a Hangar se tornou uma peça-chave em nossa trajetória de crescimento.</p>
+              <div class="depo-card__person">
+                <div class="depo-card__photo-wrap">
+                  <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-getulio.jpg" alt="Getúlio Santos">
+                </div>
+                <div>
+                  <strong class="depo-card__name">Getúlio Santos</strong>
+                  <span class="depo-card__role">CEO – ZapSign</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.depo-carousel__track -->
+        </div><!-- /.depo-carousel__track-wrapper -->
+
+        <button class="depo-carousel__btn depo-carousel__btn--prev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="depo-carousel__btn depo-carousel__btn--next" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div><!-- /.depo-carousel__inner -->
+    </div><!-- /.container -->
+    <div class="depo-carousel__dots"></div>
+  </div><!-- /#depoCarousel -->
+</section>
+
 <!-- ─── LOGOS ────────────────────────────────────────────── -->
 <section class="logos-section">
   <div class="container">

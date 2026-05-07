@@ -61,6 +61,10 @@ body.nav-open::after {
   .team-carousel__btn--prev { left: -16px; }
   .team-carousel__btn--next { right: -16px; }
 
+  /* Depo carousel — tablet mostra 2 cards */
+  .depo-carousel__btn--prev { left: -16px; }
+  .depo-carousel__btn--next { right: -16px; }
+
   /* Soluções */
   .solucoes__grid { grid-template-columns: repeat(2, 1fr); }
   .solucao-card--large { grid-column: span 2; }
@@ -274,6 +278,14 @@ body.nav-open::after {
   .team-card__img { height: 220px; }
   .team-card__body { padding: 18px; }
   .team-card__name { font-size: 15px; }
+
+  /* ─── DEPOIMENTOS ───────────────────────────────────────── */
+  .depoimentos { padding: 56px 0 48px; }
+  .depoimentos__header { margin-bottom: 36px; }
+  .depo-carousel__inner { padding: 0 0; }
+  .depo-carousel__btn { display: none; }
+  .depo-card { padding: 24px 20px 20px; min-height: auto; }
+  .depo-card__text { font-size: 14px; }
 
   /* ─── SOLUÇÕES ──────────────────────────────────────────── */
   .solucoes { padding: 56px 0; }
