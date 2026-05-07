@@ -128,7 +128,7 @@ a { text-decoration: none; color: inherit; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=1600&q=80');
+  background-image: url('https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hero-hangar.png');
   background-size: cover;
   background-position: center 30%;
   opacity: .18;
@@ -221,9 +221,9 @@ a { text-decoration: none; color: inherit; }
   color: var(--gold);
   margin-bottom: 20px;
 }
-.hero__stat { display: flex; align-items: baseline; gap: 6px; margin-bottom: 20px; }
+.hero__stat { display: flex;align-items: center;gap: 6px;margin-bottom: 20px; }
 .hero__stat-num { font-size: 48px; font-weight: 800; color: var(--branco); line-height: 1; }
-.hero__stat-label { font-size: 13px; color: rgba(255,255,255,.55); max-width: 120px; line-height: 1.4; }
+.hero__stat-label { font-size: 13px; color: rgba(255,255,255,.55);  line-height: 1.4; }
 .hero__divider { height: 1px; background: rgba(255,255,255,.1); margin: 20px 0; }
 .hero__items { display: flex; flex-direction: column; gap: 14px; }
 .hero__item {
@@ -422,7 +422,43 @@ a { text-decoration: none; color: inherit; }
 .publico-item__title { font-size: 15px; font-weight: 700; color: var(--carvao); margin-bottom: 6px; letter-spacing: -.01em; }
 .publico-item__desc { font-size: 13px; color: #7a7a82; line-height: 1.6; }
 .para-quem__center { display: flex; flex-direction: column; align-items: center; }
-.para-quem__circle { width: 200px; height: 200px; border-radius: 50%; background: var(--navy-dark); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 6px solid var(--gold); box-shadow: 0 0 0 12px rgba(241,205,113,.1); text-align: center; padding: 20px; }
+.para-quem__circle {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: var(--navy-dark);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: 6px solid var(--gold);
+  box-shadow: 0 0 0 12px rgba(241,205,113,.1);
+  text-align: center; padding: 20px;
+  position: relative;
+  animation: circlePulse 3s ease-in-out infinite;
+  cursor: default;
+}
+
+/* Anel externo que expande e some */
+.para-quem__circle::before,
+.para-quem__circle::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0;
+  animation: ringExpand 3s ease-out infinite;
+}
+.para-quem__circle::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes circlePulse {
+  0%, 100% { box-shadow: 0 0 0 12px rgba(241,205,113,.10); }
+  50%       { box-shadow: 0 0 0 20px rgba(241,205,113,.18), 0 8px 32px rgba(49,55,79,.25); }
+}
+
+@keyframes ringExpand {
+  0%   { transform: scale(1);    opacity: .6; }
+  100% { transform: scale(1.55); opacity: 0;  }
+}
 .para-quem__circle-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
 .para-quem__circle-title { font-size: 22px; font-weight: 800; color: var(--gold); line-height: 1.1; letter-spacing: -.02em; }
 
@@ -436,14 +472,29 @@ a { text-decoration: none; color: inherit; }
 .numero-item__num { font-size: 52px; font-weight: 800; color: var(--navy-dark); letter-spacing: -.03em; line-height: 1; margin-bottom: 8px; }
 .numero-item__plus { color: var(--gold-dark); }
 .numero-item__label { font-size: 13px; color: #7a7a82; line-height: 1.5; max-width: 140px; margin: 0 auto; }
-.numeros__banner { background: var(--gold); padding: 18px 40px; border-radius: 6px; text-align: center; font-size: 17px; font-weight: 700; color: var(--preto-hero); letter-spacing: -.01em; }
+.numeros__banner {
+  padding: 18px 40px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  background: var(--gold);
+  color: var(--preto-hero);
+  transition: background .6s ease, color .6s ease;
+}
+
+.numeros__banner:hover {
+  background: var(--navy-dark);
+  color: var(--gold);
+}
 
 /* ─── LOGOS ──────────────────────────────────────────────── */
 .logos-section { padding: 48px 0; background: var(--off-white); border-top: 1px solid rgba(0,0,0,.06); }
 .logos-section__label { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #aaaaaB0; margin-bottom: 32px; }
 .logos-row { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.logo-item { font-size: 18px; font-weight: 800; color: #c4c4cc; letter-spacing: -.02em; transition: color .2s; }
-.logo-item:hover { color: var(--carvao); }
+.logo-item { height: 48px; width: auto; max-width: 140px; object-fit: contain; filter: grayscale(100%) opacity(.45); transition: filter .3s var(--ease); }
+.logo-item:hover { filter: grayscale(0%) opacity(1); }
 
 /* ══════════════════════════════════════════════════════════ */
 /*  10. POR QUE HANGAR                                       */

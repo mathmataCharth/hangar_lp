@@ -44,7 +44,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <a href="#solucoes">Soluções</a>
       <a href="#equipe">Equipe</a>
       <a href="#contato">Contato</a>
-    </nav>
+    </nav> 
     <a href="#contato" class="btn btn-gold navbar__cta">Falar com especialista</a>
     <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -57,8 +57,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
   <div class="hero__bg"></div>
   <div class="hero__overlay"></div>
   <div class="hero__content">
-    <div class="hero__text">
-      <span class="hero__eyebrow">Consultoria Estratégica</span>
+    <div class="hero__text"> 
       <h1 class="hero__h1">Gestão para empresas que querem crescer com <em>consistência e rentabilidade.</em></h1>
       <p class="hero__sub">Experiência construída na prática e hoje aplicada para impulsionar negócios em diversos segmentos por meio de método, informação e direcionamento estratégico.</p>
       <div class="hero__actions">
@@ -70,7 +69,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="hero__card">
         <div class="hero__card-title">Resultados comprovados</div>
         <div class="hero__stat">
-          <span class="hero__stat-num">150</span>
+          <span class="hero__stat-num">300</span>
           <span class="hero__stat-label">projetos e consultorias entregues</span>
         </div>
         <div class="hero__divider"></div>
@@ -390,7 +389,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="para-quem__center reveal">
         <div class="para-quem__circle">
           <span class="para-quem__circle-label">Para quem é</span>
-          <span class="para-quem__circle-title">Hangar</span>
+          <span class="para-quem__circle-title">HANGAR</span>
         </div>
       </div>
       <div class="para-quem__col para-quem__col--right reveal reveal-right">
@@ -437,11 +436,11 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
   <div class="container">
     <p class="logos-section__label">Empresas que já confiaram na Hangar</p>
     <div class="logos-row reveal">
-      <span class="logo-item">ALPHORRIA</span>
-      <span class="logo-item">apoá</span>
-      <span class="logo-item">ARTGRAF</span>
-      <span class="logo-item">CAMYS</span>
-      <span class="logo-item">FIEMO</span>
+      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Alphorria.png" alt="Alphorria">
+      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Apoa.png" alt="Apoá">
+      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Abigail-Roiz.png" alt="Abigail Roiz">
+      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Camys.png" alt="Camys">
+      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/FIEMG.png" alt="FIEMG">
     </div>
   </div>
 </section>
