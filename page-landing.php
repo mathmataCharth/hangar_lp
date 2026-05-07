@@ -191,7 +191,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
     <div class="metodo__grid">
       <div class="metodo-step reveal delay-1">
         <div class="metodo-step__row">
-          <div class="metodo-step__title">Diagnóstico<br>Estratégico</div>
+          <div class="metodo-step__title">Diagnóstico Estratégico</div>
           <div class="metodo-step__num">01.</div>
         </div>
         <div class="metodo-step__desc">Análise do modelo de negócio, maturidade de gestão, saúde financeira e indicadores operacionais</div>
@@ -205,16 +205,16 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       </div>
       <div class="metodo-step reveal delay-3">
         <div class="metodo-step__desc">Direcionamento e indicadores estratégicos, organização de processos, governança e ritos de gestão</div>
-        <div class="metodo-step__row">
-          <div class="metodo-step__title">Estruturação</div>
+        <div class="metodo-step__row" style="align-items: flex-end;">
+          <div class="metodo-step__title" style="align-items: flex-end;">Estruturação</div>
           <div class="metodo-step__num">03.</div>
         </div>
       </div>
       <div class="metodo-step reveal delay-4">
         <div class="metodo-step__desc metodo-step__desc--right">Acompanhamento, geração e análise de informações e ajustes estratégicos</div>
-        <div class="metodo-step__row">
+        <div class="metodo-step__row" style="align-items: flex-end;">
           <div class="metodo-step__num">04.</div>
-          <div class="metodo-step__title metodo-step__title--right">Execução<br>Assistida</div>
+          <div class="metodo-step__title metodo-step__title--right">Execução Assistida</div>
         </div>
       </div>
       <div class="metodo__logo-center">
@@ -293,7 +293,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="solucao-card solucao-card--large reveal delay-1">
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-5.png" alt="Gestão Estratégica">
         <div class="solucao-card__body">
-          <div class="solucao-card__tag">01 — Core</div>
           <div class="solucao-card__title">Gestão Estratégica</div>
           <div class="solucao-card__desc">Planejamento estratégico completo, OKRs, governança corporativa e estruturação de indicadores.</div>
           <ul class="solucao-card__list">
@@ -307,7 +306,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="solucao-card reveal delay-2">
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-2.png" alt="Fusões e Aquisições">
         <div class="solucao-card__body">
-          <div class="solucao-card__tag">02</div>
           <div class="solucao-card__title">Fusões e Aquisições</div>
           <div class="solucao-card__desc">Assessoria na preparação, negociação e acompanhamento de transações de M&A.</div>
             <ul class="solucao-card__list">
@@ -321,7 +319,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="solucao-card reveal delay-3">
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-1.png" alt="Gestão Financeira">
         <div class="solucao-card__body">
-          <div class="solucao-card__tag">03</div>
           <div class="solucao-card__title">Gestão Financeira</div>
           <div class="solucao-card__desc">Reestruturação financeira, análise de custos, margens e elaboração de DRE gerencial.</div>
         <ul class="solucao-card__list">
@@ -336,7 +333,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="solucao-card reveal delay-2">
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-3.png" alt="CFO as a Service">
         <div class="solucao-card__body">
-          <div class="solucao-card__tag">04</div>
           <div class="solucao-card__title">CFO as a Service</div>
           <div class="solucao-card__desc">Diretoria financeira estratégica de alto nível sem o custo de um executivo CLT.</div>
         <ul class="solucao-card__list">
@@ -353,7 +349,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="solucao-card reveal delay-3">
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-4.png" alt="Processos">
         <div class="solucao-card__body">
-          <div class="solucao-card__tag">05</div>
           <div class="solucao-card__title">Processos</div>
           <div class="solucao-card__desc">Mapeamento, otimização e documentação de processos operacionais para ganho de eficiência e escala.</div>
         <ul class="solucao-card__list">
