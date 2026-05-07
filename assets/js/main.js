@@ -239,14 +239,14 @@ if (hamburger) {
   const prevBtn   = carousel.querySelector('.depo-carousel__btn--prev');
   const nextBtn   = carousel.querySelector('.depo-carousel__btn--next');
   const dotsWrap  = carousel.querySelector('.depo-carousel__dots');
-  const GAP       = 28;
+  const GAP       = 24;
 
   let current     = 0;
   let visCount    = 0;
   let isAnimating = false;
 
-  const getVisible = () =>
-    window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+  // Desktop: 2 cards visíveis | tablet/mobile: 1
+  const getVisible = () => window.innerWidth > 1024 ? 2 : 1;
 
   const getRealCards = () =>
     Array.from(track.querySelectorAll('.depo-card:not(.depo-card--clone)'));
