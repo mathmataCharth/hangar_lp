@@ -525,14 +525,11 @@ a { text-decoration: none; color: inherit; }
   flex-direction: row;
   height: auto;
   align-items: center;
-  border: 1.5px solid var(--gold);
   border-radius: 12px;
   overflow: hidden;
 }
 .depo-card__photo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   object-position: top center;
   display: block;
 }
