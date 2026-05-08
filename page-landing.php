@@ -399,9 +399,15 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
           <p class="publico-item__desc">Gestão com método, clareza de metas e governança consistente.</p>
         </div>
         <div class="publico-item" style="text-align:right;">
-          <div class="publico-item__title">Empresários que não possuem dados e informações de qualidade</div>
-          <p class="publico-item__desc">Construímos a base analítica que falta para tomar decisões com segurança.</p>
+          <div class="publico-item__title">Companhias com dificuldade de rentabilidade e de caixa</div>
+          <p class="publico-item__desc">Diagnóstico e reestruturação para recuperar margens e estabilizar o caixa.</p>
         </div>
+      </div>
+    </div>
+    <div class="para-quem__bottom reveal">
+      <div class="publico-item">
+        <div class="publico-item__title">Empreendedores que não possuem dados e informações de qualidade sobre o desempenho do seu negócio</div>
+        <p class="publico-item__desc">Construímos a base analítica que falta para tomar decisões com segurança.</p>
       </div>
     </div>
   </div>

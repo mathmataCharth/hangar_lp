@@ -465,6 +465,17 @@ a { text-decoration: none; color: inherit; }
 .para-quem__circle-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
 .para-quem__circle-title { font-size: 26px; font-weight: 800; color: var(--gold); line-height: 1.1; letter-spacing: -.02em; }
 
+/* 5º item — abaixo do círculo, centralizado */
+.para-quem__bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+.para-quem__bottom .publico-item {
+  max-width: 380px;
+  text-align: center;
+}
+
 /* ══════════════════════════════════════════════════════════ */
 /*  09. NÚMEROS                                              */
 /* ══════════════════════════════════════════════════════════ */
