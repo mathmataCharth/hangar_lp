@@ -443,7 +443,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <!-- Depoimento 1 -->
             <div class="depo-card">
               <div class="depo-card__left">
-                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-rafael.jpg" alt="Rafael Mayrink">
+                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Rafael-Mayrink.png" alt="Rafael Mayrink">
                 <div class="depo-card__identity">
                   <strong class="depo-card__name">Rafael Mayrink</strong>
                   <span class="depo-card__role">CEO – NP Digital</span>
@@ -457,7 +457,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <!-- Depoimento 2 -->
             <div class="depo-card">
               <div class="depo-card__left">
-                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-gustavo.jpg" alt="Gustavo Rabello">
+                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/gustavo-rabello.png" alt="Gustavo Rabello">
                 <div class="depo-card__identity">
                   <strong class="depo-card__name">Gustavo Rabello</strong>
                   <span class="depo-card__role">CEO – GOO Skinfood</span>
@@ -471,7 +471,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <!-- Depoimento 3 -->
             <div class="depo-card">
               <div class="depo-card__left">
-                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-chris.jpg" alt="Chris Biagioni">
+                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Chris-Biagioni.png" alt="Chris Biagioni">
                 <div class="depo-card__identity">
                   <strong class="depo-card__name">Chris Biagioni</strong>
                   <span class="depo-card__role">Fundadora – Viagens Especiais</span>
@@ -485,7 +485,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <!-- Depoimento 4 -->
             <div class="depo-card">
               <div class="depo-card__left">
-                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-andre.jpg" alt="André Albergaria">
+                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Andre-Albergaria.png" alt="André Albergaria">
                 <div class="depo-card__identity">
                   <strong class="depo-card__name">André Albergaria</strong>
                   <span class="depo-card__role">Diretor Comercial – Grupo Escalar</span>
@@ -499,7 +499,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <!-- Depoimento 5 -->
             <div class="depo-card">
               <div class="depo-card__left">
-                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/depo-getulio.jpg" alt="Getúlio Santos">
+                <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Getulio-Santos.png" alt="Getúlio Santos">
                 <div class="depo-card__identity">
                   <strong class="depo-card__name">Getúlio Santos</strong>
                   <span class="depo-card__role">CEO – ZapSign</span>
