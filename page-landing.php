@@ -529,12 +529,22 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
 <section class="logos-section">
   <div class="container">
     <p class="logos-section__label">Empresas que já confiaram na Hangar</p>
-    <div class="logos-row reveal">
-      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Alphorria.png" alt="Alphorria">
-      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Apoa.png" alt="Apoá">
-      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Abigail-Roiz.png" alt="Abigail Roiz">
-      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Camys.png" alt="Camys">
-      <img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/FIEMG.png" alt="FIEMG">
+    <div class="logos-carousel" id="logosCarousel">
+      <div class="logos-carousel__track-wrapper">
+        <div class="logos-carousel__track">
+          <div class="logos-carousel__item"><img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Alphorria.png" alt="Alphorria"></div>
+          <div class="logos-carousel__item"><img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Apoa.png" alt="Apoá"></div>
+          <div class="logos-carousel__item"><img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Abigail-Roiz.png" alt="Abigail Roiz"></div>
+          <div class="logos-carousel__item"><img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Camys.png" alt="Camys"></div>
+          <div class="logos-carousel__item"><img class="logo-item" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/FIEMG.png" alt="FIEMG"></div>
+        </div>
+      </div>
+      <button class="logos-carousel__btn logos-carousel__btn--prev" aria-label="Anterior">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="logos-carousel__btn logos-carousel__btn--next" aria-label="Próximo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
     </div>
   </div>
 </section>

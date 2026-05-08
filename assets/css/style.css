@@ -596,11 +596,44 @@ a { text-decoration: none; color: inherit; }
 .depo-carousel__dot--active { background: var(--gold); transform: scale(1.35); }
 
 /* ─── LOGOS ──────────────────────────────────────────────── */
-.logos-section { padding: 48px 0; background: var(--off-white); border-top: 1px solid rgba(0,0,0,.06); }
-.logos-section__label { text-align: center; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #aaaaaB0; margin-bottom: 32px; }
-.logos-row { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.logo-item { height: 48px; width: auto; max-width: 140px; object-fit: contain; filter: grayscale(100%) opacity(.45); transition: filter .3s var(--ease); }
-.logo-item:hover { filter: grayscale(0%) opacity(1); }
+.logos-section { padding: 52px 0; background: var(--off-white); border-top: 1px solid rgba(0,0,0,.06); }
+.logos-section__label { text-align: center; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(49,55,79,.4); margin-bottom: 36px; }
+
+/* Carousel */
+.logos-carousel { position: relative; padding: 0 44px; }
+.logos-carousel__track-wrapper { overflow: hidden; }
+.logos-carousel__track { display: flex; gap: 32px; align-items: center; }
+.logos-carousel__item { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+
+/* Logo */
+.logo-item {
+  height: 58px;
+  width: auto;
+  max-width: 168px;
+  object-fit: contain;
+  transition: transform .3s var(--ease);
+}
+.logo-item:hover { transform: scale(1.1); }
+
+/* Botões */
+.logos-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(49,55,79,.18);
+  background: var(--branco);
+  color: var(--navy-dark);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: background .2s, border-color .2s, color .2s, box-shadow .2s;
+  z-index: 5;
+}
+.logos-carousel__btn:hover { background: var(--navy-dark); border-color: var(--navy-dark); color: var(--branco); box-shadow: 0 4px 14px rgba(49,55,79,.2); }
+.logos-carousel__btn--prev { left: 0; }
+.logos-carousel__btn--next { right: 0; }
 
 /* ══════════════════════════════════════════════════════════ */
 /*  10. POR QUE HANGAR                                       */

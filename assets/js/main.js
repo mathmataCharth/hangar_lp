@@ -362,6 +362,96 @@ if (hamburger) {
   buildTrack();
 })();
 
+/* ─── Logos Carousel (infinite, 4 visíveis) ─────────────── */
+(function () {
+  const carousel  = document.getElementById('logosCarousel');
+  if (!carousel) return;
+
+  const wrapper   = carousel.querySelector('.logos-carousel__track-wrapper');
+  const track     = carousel.querySelector('.logos-carousel__track');
+  const prevBtn   = carousel.querySelector('.logos-carousel__btn--prev');
+  const nextBtn   = carousel.querySelector('.logos-carousel__btn--next');
+  const GAP       = 32;
+
+  let current     = 0;
+  let visCount    = 0;
+  let isAnimating = false;
+
+  const getVisible = () =>
+    window.innerWidth <= 640 ? 2 : window.innerWidth <= 1024 ? 3 : 4;
+
+  const getRealCards = () =>
+    Array.from(track.querySelectorAll('.logos-carousel__item:not(.logos-carousel__item--clone)'));
+
+  const getCardW = () =>
+    (wrapper.offsetWidth - GAP * (visCount - 1)) / visCount;
+
+  const getStep = () => getCardW() + GAP;
+
+  function buildTrack () {
+    track.querySelectorAll('.logos-carousel__item--clone').forEach(c => c.remove());
+    visCount = getVisible();
+    const real  = getRealCards();
+    const total = real.length;
+    const cw    = getCardW();
+
+    real.forEach(c => { c.style.flex = `0 0 ${cw}px`; c.style.width = `${cw}px`; });
+
+    for (let i = total - visCount; i < total; i++) {
+      const cl = real[i].cloneNode(true);
+      cl.classList.add('logos-carousel__item--clone');
+      cl.style.flex = `0 0 ${cw}px`; cl.style.width = `${cw}px`;
+      track.insertBefore(cl, track.firstChild);
+    }
+    for (let i = 0; i < visCount; i++) {
+      const cl = real[i].cloneNode(true);
+      cl.classList.add('logos-carousel__item--clone');
+      cl.style.flex = `0 0 ${cw}px`; cl.style.width = `${cw}px`;
+      track.appendChild(cl);
+    }
+    setPos(false);
+  }
+
+  function setPos (animate) {
+    track.style.transition = animate
+      ? 'transform .45s cubic-bezier(.22,.61,.36,1)'
+      : 'none';
+    track.style.transform = `translateX(-${(visCount + current) * getStep()}px)`;
+  }
+
+  function next () { if (isAnimating) return; isAnimating = true; current++; setPos(true); }
+  function prev () { if (isAnimating) return; isAnimating = true; current--; setPos(true); }
+
+  track.addEventListener('transitionend', () => {
+    const total = getRealCards().length;
+    if (current >= total)      { current = 0;         setPos(false); }
+    else if (current < 0)      { current = total - 1; setPos(false); }
+    isAnimating = false;
+  });
+
+  let timer = setInterval(next, 3000);
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', () => { timer = setInterval(next, 3000); });
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  let tx0 = 0;
+  track.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const d = tx0 - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 48) d > 0 ? next() : prev();
+  }, { passive: true });
+
+  let resizeT;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(buildTrack, 200);
+  });
+
+  buildTrack();
+})();
+
 /* ─── Scroll suave para âncoras da navbar ────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
