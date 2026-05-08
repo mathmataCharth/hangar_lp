@@ -98,29 +98,33 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <div class="problemas__col reveal reveal-left">
         <div class="problema-item">
           <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="problema-text">Falta de clareza nos números e no desempenho real do negócio</span>
+          <span class="problema-text">Falta de clareza estratégica</span>
         </div>
         <div class="problema-item">
           <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="problema-text">Dificuldade de retenção de talentos e formação de equipes</span>
+          <span class="problema-text">Dependência excessiva do fundador
+</span>
         </div>
         <div class="problema-item">
           <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="problema-text">Ausência de indicadores operacionais e financeiros confiáveis</span>
+          <span class="problema-text">Dados e informações confusos
+</span>
         </div>
       </div>
       <div class="problemas__col problemas__col--right reveal reveal-right">
         <div class="problema-item problema-item--right">
           <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="problema-text">Crescimento desorganizado que compromete a rentabilidade</span>
+          <span class="problema-text">Crescimento desorganizado </span>
         </div>
         <div class="problema-item problema-item--right">
           <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="problema-text">Margem que não se sustenta mesmo com faturamento em alta</span>
+          <span class="problema-text">Margens pressionadas
+</span>
         </div>
         <div class="problema-item problema-item--right">
           <div class="problema-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="#A71011" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="problema-text">Dificuldade de escalar sem perder controle da operação</span>
+          <span class="problema-text">Dificuldade de caixa
+</span>
         </div>
       </div>
     </div>
@@ -154,8 +158,8 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
               <svg viewBox="0 0 22 22" fill="none"><path d="M3 11L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
-              <p class="diferencial__title">Estratégia com visibilidade real.</p>
-              <p class="diferencial__desc">Nada de plano que fica no PPT. Cada diretriz é construída com dados e projetada para execução imediata.</p>
+              <p class="diferencial__title">Estratégia com visibilidade real</p>
+              <p class="diferencial__desc">Nada de plano que fica no PPT.</p>
             </div>
           </div>
           <div class="diferencial delay-2 reveal">
@@ -163,8 +167,8 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
               <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="12" width="4" height="7" stroke="currentColor" stroke-width="1.8" rx="1"/><rect x="9" y="8" width="4" height="11" stroke="currentColor" stroke-width="1.8" rx="1"/><rect x="15" y="4" width="4" height="15" stroke="currentColor" stroke-width="1.8" rx="1"/></svg>
             </div>
             <div>
-              <p class="diferencial__title">Gestão orientada por dados.</p>
-              <p class="diferencial__desc">Construímos indicadores e painéis que revelam a saúde real do negócio, não apenas o que aparece no faturamento.</p>
+              <p class="diferencial__title">Gestão orientada por dados</p>
+              <p class="diferencial__desc">Indicadores claros e metas práticas.</p>
             </div>
           </div>
           <div class="diferencial delay-3 reveal">
@@ -172,8 +176,8 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
               <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M11 7V11L14 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
             <div>
-              <p class="diferencial__title">Implementação junto ao cliente.</p>
-              <p class="diferencial__desc">Não entregamos relatório e saímos. Estamos lado a lado na execução — nas reuniões, nos processos, nas decisões.</p>
+              <p class="diferencial__title">Implementação junto ao cliente</p>
+              <p class="diferencial__desc">Mão na massa, lado a lado.</p>
             </div>
           </div>
         </div>
