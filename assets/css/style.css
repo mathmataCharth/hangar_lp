@@ -349,7 +349,8 @@ a { text-decoration: none; color: inherit; }
 .quem-somos { padding: 96px 0; background: var(--off-white); }
 .quem-somos__intro { max-width: 760px; margin: 0 auto 72px; text-align: center; }
 .quem-somos__title { font-size: clamp(32px, 3.4vw, 46px); font-weight: 800; color: var(--carvao); letter-spacing: -.02em; line-height: 1.2; margin-bottom: 20px; }
-.quem-somos__desc { font-size: 18px; line-height: 1.75; color: #5a5a60; }
+.quem-somos__desc { font-size: 18px; line-height: 1.75; color: #5a5a60; margin-bottom: 16px; }
+.quem-somos__desc:last-of-type { margin-bottom: 0; }
 .quem-somos__tagline { margin: 28px auto; text-align: center; font-size: 22px; font-weight: 700; color: var(--carvao); letter-spacing: -.01em; display: flex; align-items: center; justify-content: center; gap: 12px; }
 .quem-somos__tagline::before, .quem-somos__tagline::after { content: ''; height: 1.5px; width: 48px; background: var(--gold-dark); }
 /* ─── TEAM CAROUSEL ─────────────────────────────────────── */
