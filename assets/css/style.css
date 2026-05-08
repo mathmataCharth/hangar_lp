@@ -517,46 +517,31 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
 }
 
-/* Painel esquerdo — foto + identidade (colado no direito) */
+/* Painel esquerdo — só a foto */
 .depo-card__left {
   width: 200px;
   min-width: 200px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: auto;
+  align-items: center;
   border: 1.5px solid var(--gold);
-  border-right: none;              /* sem borda direita — compartilhada col direito */
-  border-radius: 12px 0 0 12px;   /* cantos arredondados só à esquerda */
+  border-radius: 12px;
   overflow: hidden;
-  margin-right: 0;                 /* zero gap — colado */
 }
 .depo-card__photo {
   width: 100%;
-  flex: 1;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
-  min-height: 240px;
 }
-.depo-card__identity {
-  padding: 14px 16px 16px;
-  background: var(--navy-dark);
-  border-top: 1px solid rgba(241,205,113,.3);
-}
-.depo-card__name {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--branco);
-  line-height: 1.3;
-  margin-bottom: 4px;
-}
-.depo-card__role { font-size: 13px; color: rgba(255,255,255,.5); }
 
-/* Painel direito — texto (colado no esquerdo) */
+/* Painel direito — texto */
 .depo-card__right {
   flex: 1;
-  border: 1.5px solid var(--gold);
-  border-radius: 0 12px 12px 0;   /* cantos arredondados só à direita */
+  border: 2px solid var(--gold);
+  border-radius: 12px;
   padding: 32px 28px;
   display: flex;
   align-items: center;

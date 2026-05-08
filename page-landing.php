@@ -444,10 +444,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <div class="depo-card">
               <div class="depo-card__left">
                 <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Rafael-Mayrink.png" alt="Rafael Mayrink">
-                <div class="depo-card__identity">
-                  <strong class="depo-card__name">Rafael Mayrink</strong>
-                  <span class="depo-card__role">CEO – NP Digital</span>
-                </div>
               </div>
               <div class="depo-card__right">
                 <p class="depo-card__text">Todo empresário tinha que ter um estrategista da Hangar participando do planejamento da empresa. Nós sempre achamos que sabemos tudo do nosso negócio. Até que vem um estrategista super competente e te aponta caminhos que você jamais imaginou. Esse é o Fábio e seu time. Há 6 anos é nosso consultor. Sem a atuação dificilmente minha empresa teria crescido o tanto que cresceu. Hoje chegamos a 8 dígitos de faturamento e crescimento constante todos os anos.</p>
@@ -458,10 +454,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <div class="depo-card">
               <div class="depo-card__left">
                 <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/gustavo-rabello.png" alt="Gustavo Rabello">
-                <div class="depo-card__identity">
-                  <strong class="depo-card__name">Gustavo Rabello</strong>
-                  <span class="depo-card__role">CEO – GOO Skinfood</span>
-                </div>
               </div>
               <div class="depo-card__right">
                 <p class="depo-card__text">Um trabalho e construção de quase 6 anos com a Hangar foram cruciais para o amadurecimento estratégico e financeiro do meu grupo. Conhecimento e expertise, com insights precisos e soluções customizadas são grandes diferenciais. Além de análises detalhadas, eles me ajudaram a organizar e criar um plano sólido para alcançar meus objetivos de curto e longo prazo. Estou muito satisfeito com os resultados alcançados e seguro com toda orientação financeira e estratégica.</p>
@@ -472,10 +464,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <div class="depo-card">
               <div class="depo-card__left">
                 <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Chris-Biagioni.png" alt="Chris Biagioni">
-                <div class="depo-card__identity">
-                  <strong class="depo-card__name">Chris Biagioni</strong>
-                  <span class="depo-card__role">Fundadora – Viagens Especiais</span>
-                </div>
               </div>
               <div class="depo-card__right">
                 <p class="depo-card__text">É com grande satisfação que compartilho minha experiência de parceria profissional com a Hangar. Essa relação se tornou um alicerce crucial para nossas decisões estratégicas e financeiras na empresa. Uma característica que merece destaque é o profundo engajamento da consultoria em relação a todas as nossas demandas, mesmo aquelas que estavam fora do escopo inicialmente estabelecido. Isso reflete o compromisso da Hangar em ir além, garantindo que todas as áreas sejam atendidas de forma integral.</p>
@@ -486,10 +474,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <div class="depo-card">
               <div class="depo-card__left">
                 <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Andre-Albergaria.png" alt="André Albergaria">
-                <div class="depo-card__identity">
-                  <strong class="depo-card__name">André Albergaria</strong>
-                  <span class="depo-card__role">Diretor Comercial – Grupo Escalar</span>
-                </div>
               </div>
               <div class="depo-card__right">
                 <p class="depo-card__text">O trabalho da Hangar fez toda a diferença para nós do Grupo Escalar. Nos ajudou a profissionalizar a parte financeira e criar seriedade na parte estratégica do negócio. Mentorados por eles, criamos um conselho consultivo que trouxe ótimas decisões para a empresa. Eles também nos apresentaram a metodologia OKRs, e outras métricas que realmente impulsionaram o nosso desempenho. Graças às orientações e mentorias semanais, seguimos um caminho claro e dobramos de tamanho em um curto intervalo de tempo.</p>
@@ -500,10 +484,6 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <div class="depo-card">
               <div class="depo-card__left">
                 <img class="depo-card__photo" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Getulio-Santos.png" alt="Getúlio Santos">
-                <div class="depo-card__identity">
-                  <strong class="depo-card__name">Getúlio Santos</strong>
-                  <span class="depo-card__role">CEO – ZapSign</span>
-                </div>
               </div>
               <div class="depo-card__right">
                 <p class="depo-card__text">Desde nossa parceria com a Hangar, a ZapSign experimentou uma transformação na gestão financeira. Sua expertise em modelagem financeira e estratégia, aliada à implementação eficaz de OKRs, permitiu um acompanhamento correto do nosso desempenho, de acordo com as melhores práticas de mercado, e solidificou a nossa estrutura financeira. Com sua abordagem personalizada e orientações consistentes, a Hangar se tornou uma peça-chave em nossa trajetória de crescimento.</p>
