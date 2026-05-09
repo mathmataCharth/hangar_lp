@@ -296,27 +296,18 @@ body.nav-open::after {
 
   /* ─── PARA QUEM ─────────────────────────────────────────── */
   .para-quem { padding: 56px 0; }
-  .para-quem__header { margin-bottom: 40px; }
+  .para-quem__header { margin-bottom: 24px; }
+
+  /* Oculta círculo — lista de cards ocupa toda a largura */
+  .para-quem__center { display: none; }
 
   .para-quem__layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 10px;
     max-width: 100%;
   }
 
-  /* Círculo aparece primeiro */
-  .para-quem__center { order: -1; }
-
-  .para-quem__circle {
-    width: 120px;
-    height: 120px;
-    border-width: 4px;
-    box-shadow: 0 0 0 8px rgba(241,205,113,.1);
-    padding: 12px;
-  }
-  .para-quem__circle-label { font-size: 9px; }
-  .para-quem__circle-title { font-size: 16px; }
-
+  .para-quem__col { gap: 10px; }
   .para-quem__col--right { align-items: flex-start; }
 
   /* Cards mobile — borda dourada lateral */
@@ -332,8 +323,8 @@ body.nav-open::after {
   .publico-item__title { color: var(--navy-dark); font-size: 15px; }
   .publico-item__desc  { font-size: 13px; margin-top: 4px; }
 
-  /* 5º item centralizado — mantém card mas sem text-align center */
-  .para-quem__bottom { margin-top: 0; }
+  /* 5º item */
+  .para-quem__bottom { margin-top: 10px; }
   .para-quem__bottom .publico-item { text-align: left !important; max-width: 100%; }
 
   /* ─── NÚMEROS ───────────────────────────────────────────── */

@@ -286,24 +286,18 @@ body.nav-open::after {
 
   /* ─── PARA QUEM — círculo central REMOVIDO ──────────────── */
   .para-quem { padding: 56px 0; }
-  .para-quem__header { margin-bottom: 40px; }
+  .para-quem__header { margin-bottom: 24px; }
 
   .para-quem__layout {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 10px;
     max-width: 100%;
   }
 
   /* Círculo removido */
   .para-quem__center { display: none; }
 
-  /* Duas colunas viram dois grupos com título */
-  .para-quem__col {
-    gap: 20px;
-    padding: 28px 0;
-    border-top: 1px solid rgba(0,0,0,.08);
-  }
-  .para-quem__col:first-child { border-top: none; }
+  .para-quem__col { gap: 10px; padding: 0; border-top: none; }
   .para-quem__col--right { align-items: flex-start; }
 
   /* Cards mobile — borda dourada lateral */
@@ -319,8 +313,8 @@ body.nav-open::after {
   .publico-item__title { color: var(--navy-dark); font-size: 15px; }
   .publico-item__desc  { font-size: 13px; margin-top: 4px; }
 
-  /* 5º item centralizado — mantém card mas sem text-align center */
-  .para-quem__bottom { margin-top: 0; }
+  /* 5º item */
+  .para-quem__bottom { margin-top: 10px; }
   .para-quem__bottom .publico-item { text-align: left !important; max-width: 100%; }
 
   /* ─── NÚMEROS (idêntico à Versão A) ─────────────────────── */
