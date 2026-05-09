@@ -318,7 +318,23 @@ body.nav-open::after {
   .para-quem__circle-title { font-size: 16px; }
 
   .para-quem__col--right { align-items: flex-start; }
-  .publico-item { max-width: 100%; text-align: left !important; }
+
+  /* Cards mobile — borda dourada lateral */
+  .publico-item {
+    max-width: 100%;
+    text-align: left !important;
+    background: #ffffff;
+    border-left: 3px solid var(--gold-dark);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+  .publico-item__title { color: var(--navy-dark); font-size: 15px; }
+  .publico-item__desc  { font-size: 13px; margin-top: 4px; }
+
+  /* 5º item centralizado — mantém card mas sem text-align center */
+  .para-quem__bottom { margin-top: 0; }
+  .para-quem__bottom .publico-item { text-align: left !important; max-width: 100%; }
 
   /* ─── NÚMEROS ───────────────────────────────────────────── */
   .numeros { padding: 56px 0; }
