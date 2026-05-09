@@ -274,7 +274,7 @@ body.nav-open::after {
 
   /* Depo card: empilha verticalmente no mobile */
   .depo-card { flex-direction: column; align-items: center; min-height: auto; }
-  .depo-card__left { width: auto; min-width: unset; border-radius: 12px; }
+  .depo-card__left { width: auto; min-width: unset; border-radius: 23px; border: 4px solid #ebc66d !important; }
   .depo-card__right { width: 100%; border-radius: 12px; padding: 20px; }
   .depo-card__text { font-size: 14px; }
   .team-card__img { height: 220px; }
