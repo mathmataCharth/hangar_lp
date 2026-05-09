@@ -594,7 +594,26 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── LOGOS ──────────────────────────────────────────────── */
 .logos-section { padding: 52px 0; background: var(--off-white); border-top: 1px solid rgba(0,0,0,.06); }
-.logos-section__label { text-align: center; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(49,55,79,.4); margin-bottom: 36px; }
+.logos-section__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  text-transform: none;
+  color: var(--carvao);
+  margin-bottom: 36px;
+}
+.logos-section__label::before,
+.logos-section__label::after {
+  content: '';
+  height: 1.5px;
+  width: 48px;
+  background: var(--gold-dark);
+}
 
 /* Carousel */
 .logos-carousel { position: relative; padding: 0 44px; }
@@ -604,7 +623,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Logo */
 .logo-item {
-  height: 58px;
+  height: 150px;
   width: auto;
   max-width: 168px;
   object-fit: contain;
