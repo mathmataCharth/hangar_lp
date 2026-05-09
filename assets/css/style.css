@@ -594,26 +594,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── LOGOS ──────────────────────────────────────────────── */
 .logos-section { padding: 52px 0; background: var(--off-white); border-top: 1px solid rgba(0,0,0,.06); }
-.logos-section__label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -.01em;
-  text-transform: none;
-  color: var(--carvao);
-  margin-bottom: 36px;
-}
-.logos-section__label::before,
-.logos-section__label::after {
-  content: '';
-  height: 1.5px;
-  width: 48px;
-  background: var(--gold-dark);
-}
+.logos-section__label { margin-bottom: 36px; }
 
 /* Carousel */
 .logos-carousel { position: relative; padding: 0 44px; }

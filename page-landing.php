@@ -520,7 +520,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
 <!-- ─── LOGOS ────────────────────────────────────────────── -->
 <section class="logos-section">
   <div class="container">
-    <p class="logos-section__label">Empresas que já confiaram na Hangar</p>
+    <p class="logos-section__label quem-somos__tagline">Empresas que já confiaram na Hangar</p>
     <div class="logos-carousel" id="logosCarousel">
       <div class="logos-carousel__track-wrapper">
         <div class="logos-carousel__track">
