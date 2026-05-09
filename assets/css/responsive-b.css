@@ -271,7 +271,11 @@ body.nav-open::after {
   .depoimentos__header { margin-bottom: 36px; }
   .depo-carousel__inner { padding: 0 0; }
   .depo-carousel__btn { display: none !important; }
-  .depo-card { padding: 24px 20px 20px; min-height: auto; }
+
+  /* Depo card: empilha verticalmente no mobile */
+  .depo-card { flex-direction: column; align-items: flex-start; min-height: auto; }
+  .depo-card__left { width: auto; min-width: unset; border-radius: 12px; }
+  .depo-card__right { width: 100%; border-radius: 12px; padding: 20px; }
   .depo-card__text { font-size: 14px; }
   .team-card__img { height: 220px; }
   .team-card__body { padding: 18px; }
