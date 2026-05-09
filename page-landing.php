@@ -35,7 +35,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
 <nav class="navbar" id="navbar">
   <div class="navbar__inner">
     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar__logo">
-      <img src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Hangar-logo.png"
+      <img src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/HANGAR_inteligenciaV3-e1778284721662.png"
            alt="Hangar Inteligência Empresarial"
            class="navbar__logo-img">
     </a>

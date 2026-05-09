@@ -86,7 +86,7 @@ a { text-decoration: none; color: inherit; }
   transition: background .3s, box-shadow .3s;
 }
 .navbar.scrolled {
-  background: rgba(16,18,23,.95);
+  background: var(--navy-dark);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 24px rgba(0,0,0,.3);
 }
@@ -104,7 +104,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
 }
 .navbar__logo-img {
-  height: 125px;
+  height: 70px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -531,8 +531,6 @@ a { text-decoration: none; color: inherit; }
 
 /* Painel esquerdo — só a foto */
 .depo-card__left {
-  width: 200px;
-  min-width: 200px;
   display: flex;
   flex-direction: row;
   height: auto;
