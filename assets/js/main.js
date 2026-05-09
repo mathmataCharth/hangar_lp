@@ -378,7 +378,7 @@ if (hamburger) {
   let isAnimating = false;
 
   const getVisible = () =>
-    window.innerWidth <= 640 ? 2 : window.innerWidth <= 1024 ? 3 : 4;
+    window.innerWidth <= 640 ? 2 : window.innerWidth <= 1024 ? 4 : 6;
 
   const getRealCards = () =>
     Array.from(track.querySelectorAll('.logos-carousel__item:not(.logos-carousel__item--clone)'));
