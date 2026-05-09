@@ -274,7 +274,7 @@ body.nav-open::after {
   .quem-somos__desc { font-size: 15px; }
 
   /* Carousel mobile: 1 card visível, botões ocultos → usar swipe + dots */
-  .team-carousel__btn { display: none; }
+  .team-carousel__btn { display: none !important; }
   .team-card__img { height: 220px; }
   .team-card__body { padding: 18px; }
   .team-card__name { font-size: 15px; }
@@ -283,7 +283,7 @@ body.nav-open::after {
   .depoimentos { padding: 56px 0 48px; }
   .depoimentos__header { margin-bottom: 36px; }
   .depo-carousel__inner { padding: 0 0; }
-  .depo-carousel__btn { display: none; }
+  .depo-carousel__btn { display: none !important; }
   .depo-card { padding: 24px 20px 20px; min-height: auto; }
   .depo-card__text { font-size: 14px; }
 
@@ -334,7 +334,7 @@ body.nav-open::after {
   .logos-section { padding: 36px 0; }
   .logos-row { gap: 20px; }
   .logo-item { font-size: 14px; }
-  .logos-carousel__btn { display: none; }
+  .logos-carousel__btn { display: none !important; }
   .logos-carousel { padding: 0; }
 
   /* ─── POR QUE HANGAR ────────────────────────────────────── */
