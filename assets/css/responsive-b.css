@@ -321,6 +321,8 @@ body.nav-open::after {
   .logos-section { padding: 36px 0; }
   .logos-row { gap: 20px; }
   .logo-item { font-size: 14px; }
+  .logos-carousel__btn { display: none; }
+  .logos-carousel { padding: 0; }
 
   /* ─── POR QUE HANGAR (idêntico à Versão A) ──────────────── */
   .porque { padding: 56px 0; }
