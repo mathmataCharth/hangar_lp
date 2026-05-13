@@ -682,9 +682,27 @@ a { text-decoration: none; color: inherit; }
 /* ══════════════════════════════════════════════════════════ */
 /*  FOOTER                                                   */
 /* ══════════════════════════════════════════════════════════ */
-.footer { background: var(--preto-hero); padding: 28px 32px; text-align: center; }
-.footer__text { font-size: 15px; color: rgba(255,255,255,.3); }
-.footer__text a { color: var(--gold); }
+.footer {
+  background: var(--preto-hero);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.footer__copy {
+  font-size: 14px;
+  color: rgba(255,255,255,.35);
+  margin: 0;
+}
+.footer__copy a { color: var(--gold); }
+.footer__address {
+  font-size: 13px;
+  color: rgba(255,255,255,.25);
+  font-style: normal;
+  text-align: right;
+  line-height: 1.6;
+}
 
 /* ══════════════════════════════════════════════════════════ */
 /*  FORMULÁRIO ELEMENTOR — CTA FINAL (dark navy)             */

@@ -647,7 +647,12 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
 
 <!-- ─── FOOTER ───────────────────────────────────────────── -->
 <footer class="footer">
-  <p class="footer__text">© <?php echo date('Y'); ?> Hangar Consultoria. Todos os direitos reservados.</p>
+  <p class="footer__copy">© <?php echo date('Y'); ?> Hangar Inteligência Empresarial. Todos os direitos reservados.</p>
+  <address class="footer__address">
+    Alameda Oscar Niemeyer, 1033 — Sala 307, Portaria 0<br>
+    Vila da Serra — Nova Lima / MG<br>
+    CEP 34.006-065
+  </address>
 </footer>
 
 <script src="<?php echo esc_url( $lp_assets ); ?>/js/main.js"></script>
