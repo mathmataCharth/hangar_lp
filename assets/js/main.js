@@ -210,12 +210,23 @@ if (hamburger) {
   nextBtn.addEventListener('click', next);
 
   /* ── Touch / swipe ── */
-  let tx0 = 0;
-  track.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
-    const d = tx0 - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 48) d > 0 ? next() : prev();
+  let tx0 = 0, ty0 = 0;
+  track.addEventListener('touchstart', e => {
+    tx0 = e.touches[0].clientX;
+    ty0 = e.touches[0].clientY;
+    clearInterval(timer);
   }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - tx0);
+    const dy = Math.abs(e.touches[0].clientY - ty0);
+    if (dx > dy && dx > 8) e.preventDefault();
+  }, { passive: false });
+  track.addEventListener('touchend', e => {
+    const d = tx0 - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 40) d > 0 ? next() : prev();
+    timer = setInterval(next, 4500);
+  }, { passive: true });
+  track.addEventListener('touchcancel', () => { timer = setInterval(next, 4500); });
 
   /* ── Resize ── */
   let resizeT;
@@ -345,12 +356,23 @@ if (hamburger) {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  let tx0 = 0;
-  track.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
-    const d = tx0 - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 48) d > 0 ? next() : prev();
+  let tx0 = 0, ty0 = 0;
+  track.addEventListener('touchstart', e => {
+    tx0 = e.touches[0].clientX;
+    ty0 = e.touches[0].clientY;
+    clearInterval(timer);
   }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - tx0);
+    const dy = Math.abs(e.touches[0].clientY - ty0);
+    if (dx > dy && dx > 8) e.preventDefault();
+  }, { passive: false });
+  track.addEventListener('touchend', e => {
+    const d = tx0 - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 40) d > 0 ? next() : prev();
+    timer = setInterval(next, 5000);
+  }, { passive: true });
+  track.addEventListener('touchcancel', () => { timer = setInterval(next, 5000); });
 
   let resizeT;
   window.addEventListener('resize', () => {
@@ -436,12 +458,23 @@ if (hamburger) {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  let tx0 = 0;
-  track.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
-    const d = tx0 - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 48) d > 0 ? next() : prev();
+  let tx0 = 0, ty0 = 0;
+  track.addEventListener('touchstart', e => {
+    tx0 = e.touches[0].clientX;
+    ty0 = e.touches[0].clientY;
+    clearInterval(timer);
   }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - tx0);
+    const dy = Math.abs(e.touches[0].clientY - ty0);
+    if (dx > dy && dx > 8) e.preventDefault();
+  }, { passive: false });
+  track.addEventListener('touchend', e => {
+    const d = tx0 - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 40) d > 0 ? next() : prev();
+    timer = setInterval(next, 3000);
+  }, { passive: true });
+  track.addEventListener('touchcancel', () => { timer = setInterval(next, 3000); });
 
   let resizeT;
   window.addEventListener('resize', () => {
