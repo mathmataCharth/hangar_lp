@@ -222,7 +222,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
         </div>
       </div>
       <div class="metodo__logo-center">
-        <img src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Hangar-IE.png"
+        <img src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/Hangar-Reducao.png"
              alt="Hangar" class="metodo__logo-img">
       </div>
     </div>

@@ -689,13 +689,13 @@ a { text-decoration: none; color: inherit; }
 }
 .footer__copy {
   font-size: 14px;
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.7);
   margin: 0;
 }
 .footer__copy a { color: var(--gold); }
 .footer__address {
   font-size: 13px;
-  color: rgba(255,255,255,.25);
+  color: rgba(255,255,255,.55);
   font-style: normal;
   text-align: right;
   line-height: 1.6;
