@@ -151,7 +151,7 @@ body.nav-open::after {
     gap: 0;
   }
   .hero__overlay {
-    background: linear-gradient(180deg, rgba(16,18,23,.94) 40%, rgba(16,18,23,.82) 100%);
+    background: linear-gradient(110deg, #31374fd4 18%, #31374f47 100%);
   }
   .hero__h1 { font-size: clamp(30px, 8vw, 42px); }
   .hero__sub { max-width: 100%; font-size: 15px; }
