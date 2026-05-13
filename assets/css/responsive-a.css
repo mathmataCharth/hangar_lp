@@ -347,6 +347,7 @@ body.nav-open::after {
   .logo-item { font-size: 14px; }
   .logos-carousel__btn { display: none !important; }
   .logos-carousel { padding: 0; }
+  .logos-carousel__dots { display: flex; }
 
   /* ─── POR QUE HANGAR ────────────────────────────────────── */
   .porque { padding: 56px 0; }

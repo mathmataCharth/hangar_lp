@@ -576,6 +576,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
     </div>
+    <div class="logos-carousel__dots" id="logosDots"></div>
   </div>
 </section>
 

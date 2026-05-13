@@ -384,7 +384,7 @@ if (hamburger) {
   buildTrack();
 })();
 
-/* ─── Logos Carousel (infinite, 4 visíveis) ─────────────── */
+/* ─── Logos Carousel (infinite, 6 visíveis) ─────────────── */
 (function () {
   const carousel  = document.getElementById('logosCarousel');
   if (!carousel) return;
@@ -393,7 +393,9 @@ if (hamburger) {
   const track     = carousel.querySelector('.logos-carousel__track');
   const prevBtn   = carousel.querySelector('.logos-carousel__btn--prev');
   const nextBtn   = carousel.querySelector('.logos-carousel__btn--next');
+  const dotsWrap  = document.getElementById('logosDots');
   const GAP       = 32;
+  const INTERVAL  = 1800;
 
   let current     = 0;
   let visCount    = 0;
@@ -432,6 +434,7 @@ if (hamburger) {
       track.appendChild(cl);
     }
     setPos(false);
+    buildDots();
   }
 
   function setPos (animate) {
@@ -444,16 +447,43 @@ if (hamburger) {
   function next () { if (isAnimating) return; isAnimating = true; current++; setPos(true); }
   function prev () { if (isAnimating) return; isAnimating = true; current--; setPos(true); }
 
+  /* ── Dots ── */
+  function buildDots () {
+    if (!dotsWrap) return;
+    const total = getRealCards().length;
+    const pages = Math.ceil(total / visCount);
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < pages; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'logos-carousel__dot';
+      btn.setAttribute('aria-label', `Página ${i + 1}`);
+      btn.addEventListener('click', () => { current = i * visCount; setPos(true); isAnimating = false; updateDots(); });
+      dotsWrap.appendChild(btn);
+    }
+    updateDots();
+  }
+
+  function updateDots () {
+    if (!dotsWrap) return;
+    const total = getRealCards().length;
+    const pages = Math.ceil(total / visCount);
+    const norm  = ((current % total) + total) % total;
+    const page  = Math.floor(norm / visCount);
+    dotsWrap.querySelectorAll('.logos-carousel__dot').forEach((d, i) =>
+      d.classList.toggle('logos-carousel__dot--active', i === page));
+  }
+
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
     if (current >= total)      { current = 0;         setPos(false); }
     else if (current < 0)      { current = total - 1; setPos(false); }
     isAnimating = false;
+    updateDots();
   });
 
-  let timer = setInterval(next, 3000);
+  let timer = setInterval(next, INTERVAL);
   carousel.addEventListener('mouseenter', () => clearInterval(timer));
-  carousel.addEventListener('mouseleave', () => { timer = setInterval(next, 3000); });
+  carousel.addEventListener('mouseleave', () => { timer = setInterval(next, INTERVAL); });
 
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
@@ -472,9 +502,9 @@ if (hamburger) {
   track.addEventListener('touchend', e => {
     const d = tx0 - e.changedTouches[0].clientX;
     if (Math.abs(d) > 40) d > 0 ? next() : prev();
-    timer = setInterval(next, 3000);
+    timer = setInterval(next, INTERVAL);
   }, { passive: true });
-  track.addEventListener('touchcancel', () => { timer = setInterval(next, 3000); });
+  track.addEventListener('touchcancel', () => { timer = setInterval(next, INTERVAL); });
 
   let resizeT;
   window.addEventListener('resize', () => {
