@@ -444,8 +444,8 @@ if (hamburger) {
     track.style.transform = `translateX(-${(visCount + current) * getStep()}px)`;
   }
 
-  function next () { if (isAnimating) return; isAnimating = true; current++; setPos(true); }
-  function prev () { if (isAnimating) return; isAnimating = true; current--; setPos(true); }
+  function next () { if (isAnimating) return; isAnimating = true; current += visCount; setPos(true); }
+  function prev () { if (isAnimating) return; isAnimating = true; current -= visCount; setPos(true); }
 
   /* ── Dots ── */
   function buildDots () {
