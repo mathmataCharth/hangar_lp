@@ -535,8 +535,6 @@ a { text-decoration: none; color: inherit; }
   flex-direction: row;
   height: auto;
   align-items: center;
-  border-radius: 23px;
-  border: 4px solid #ebc66d !important;
   overflow: hidden;
 }
 .depo-card__photo {
@@ -671,8 +669,7 @@ a { text-decoration: none; color: inherit; }
 /*  11. CTA FINAL                                            */
 /* ══════════════════════════════════════════════════════════ */
 .cta-final { background: var(--navy-dark); padding: 100px 32px; text-align: center; position: relative; overflow: hidden; }
-.cta-final::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; border-radius: 50%; border: 1px solid rgba(241,205,113,.08); }
-.cta-final::after  { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 900px; height: 900px; border-radius: 50%; border: 1px solid rgba(241,205,113,.04); }
+.cta-final::before, .cta-final::after { display: none; }
 .cta-final__inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
 .cta-final__eyebrow { font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
 .cta-final__title { font-size: clamp(36px, 4.8vw, 58px); font-weight: 800; color: var(--branco); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 16px; }
