@@ -139,6 +139,7 @@ if (hamburger) {
     }
 
     setPos(false);
+    isAnimating = false;
   }
 
   /* ── Posiciona o track sem/com animação ── */
@@ -150,32 +151,22 @@ if (hamburger) {
   }
 
   /* ── Navegação ── */
-  function next () {
-    if (isAnimating) return;
+  let animTimeout = null;
+  function startAnim () {
     isAnimating = true;
-    current++;
-    setPos(true);
+    clearTimeout(animTimeout);
+    animTimeout = setTimeout(() => { isAnimating = false; }, 600);
   }
+  function next () { if (isAnimating) return; startAnim(); current++; setPos(true); }
+  function prev () { if (isAnimating) return; startAnim(); current--; setPos(true); }
+  function goTo (idx) { startAnim(); current = idx; setPos(true); updateDots(); }
 
-  function prev () {
-    if (isAnimating) return;
-    isAnimating = true;
-    current--;
-    setPos(true);
-  }
-
-  function goTo (idx) {
-    current = idx;
-    setPos(true);
-    isAnimating = false;
-    updateDots();
-  }
-
-  /* ── Ao terminar transição: snap seamless ao "espelho" no array real ── */
+  /* ── Ao terminar transição: snap para o início/fim ── */
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
-    if (current >= total)      { current = current - total; setPos(false); }
-    else if (current < 0)      { current = current + total; setPos(false); }
+    if (current >= total)      { current = 0;         setPos(false); }
+    else if (current < 0)      { current = total - 1; setPos(false); }
+    clearTimeout(animTimeout);
     isAnimating = false;
     updateDots();
   });
@@ -298,6 +289,7 @@ if (hamburger) {
     }
 
     setPos(false);
+    isAnimating = false;
   }
 
   function setPos (animate) {
@@ -307,31 +299,21 @@ if (hamburger) {
     track.style.transform = `translateX(-${(visCount + current) * getStep()}px)`;
   }
 
-  function next () {
-    if (isAnimating) return;
+  let animTimeout = null;
+  function startAnim () {
     isAnimating = true;
-    current++;
-    setPos(true);
+    clearTimeout(animTimeout);
+    animTimeout = setTimeout(() => { isAnimating = false; }, 600);
   }
-
-  function prev () {
-    if (isAnimating) return;
-    isAnimating = true;
-    current--;
-    setPos(true);
-  }
-
-  function goTo (idx) {
-    current = idx;
-    setPos(true);
-    isAnimating = false;
-    updateDots();
-  }
+  function next () { if (isAnimating) return; startAnim(); current++; setPos(true); }
+  function prev () { if (isAnimating) return; startAnim(); current--; setPos(true); }
+  function goTo (idx) { startAnim(); current = idx; setPos(true); updateDots(); }
 
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
-    if (current >= total)      { current = current - total; setPos(false); }
-    else if (current < 0)      { current = current + total; setPos(false); }
+    if (current >= total)      { current = 0;         setPos(false); }
+    else if (current < 0)      { current = total - 1; setPos(false); }
+    clearTimeout(animTimeout);
     isAnimating = false;
     updateDots();
   });
@@ -447,6 +429,7 @@ if (hamburger) {
       track.appendChild(cl);
     }
     setPos(false);
+    isAnimating = false;
     buildDots();
   }
 
@@ -457,8 +440,14 @@ if (hamburger) {
     track.style.transform = `translateX(-${(visCount + current) * getStep()}px)`;
   }
 
-  function next () { if (isAnimating) return; isAnimating = true; current += visCount; setPos(true); }
-  function prev () { if (isAnimating) return; isAnimating = true; current -= visCount; setPos(true); }
+  let animTimeout = null;
+  function startAnim () {
+    isAnimating = true;
+    clearTimeout(animTimeout);
+    animTimeout = setTimeout(() => { isAnimating = false; }, 600);
+  }
+  function next () { if (isAnimating) return; startAnim(); current += visCount; setPos(true); }
+  function prev () { if (isAnimating) return; startAnim(); current -= visCount; setPos(true); }
 
   /* ── Dots ── */
   function buildDots () {
@@ -470,7 +459,7 @@ if (hamburger) {
       const btn = document.createElement('button');
       btn.className = 'logos-carousel__dot';
       btn.setAttribute('aria-label', `Página ${i + 1}`);
-      btn.addEventListener('click', () => { current = i * visCount; setPos(true); isAnimating = false; updateDots(); });
+      btn.addEventListener('click', () => { if (isAnimating) return; startAnim(); current = i * visCount; setPos(true); updateDots(); });
       dotsWrap.appendChild(btn);
     }
     updateDots();
@@ -488,8 +477,9 @@ if (hamburger) {
 
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
-    if (current >= total)      { current = current - total; setPos(false); }
-    else if (current < 0)      { current = current + total; setPos(false); }
+    if (current >= total)      { current = 0;         setPos(false); }
+    else if (current < 0)      { current = total - 1; setPos(false); }
+    clearTimeout(animTimeout);
     isAnimating = false;
     updateDots();
   });
