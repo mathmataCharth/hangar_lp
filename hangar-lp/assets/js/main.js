@@ -209,24 +209,30 @@ if (hamburger) {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  /* ── Touch / swipe ── */
-  let tx0 = 0, ty0 = 0;
-  track.addEventListener('touchstart', e => {
-    tx0 = e.touches[0].clientX;
-    ty0 = e.touches[0].clientY;
+  /* ── Swipe (Pointer Events — iOS, Android, desktop) ── */
+  let pId = null, sx = 0, sy = 0;
+  wrapper.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (pId !== null) return;
+    pId = e.pointerId;
+    sx = e.clientX; sy = e.clientY;
+    try { wrapper.setPointerCapture(pId); } catch(_) {}
     clearInterval(timer);
-  }, { passive: true });
-  track.addEventListener('touchmove', e => {
-    const dx = Math.abs(e.touches[0].clientX - tx0);
-    const dy = Math.abs(e.touches[0].clientY - ty0);
-    if (dx > dy && dx > 8) e.preventDefault();
-  }, { passive: false });
-  track.addEventListener('touchend', e => {
-    const d = tx0 - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 40) d > 0 ? next() : prev();
+  });
+  wrapper.addEventListener('pointerup', e => {
+    if (e.pointerId !== pId) return;
+    pId = null;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
     timer = setInterval(next, 4500);
-  }, { passive: true });
-  track.addEventListener('touchcancel', () => { timer = setInterval(next, 4500); });
+  });
+  wrapper.addEventListener('pointercancel', e => {
+    if (e.pointerId !== pId) return;
+    pId = null;
+    timer = setInterval(next, 4500);
+  });
 
   /* ── Resize ── */
   let resizeT;
@@ -356,23 +362,30 @@ if (hamburger) {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  let tx0 = 0, ty0 = 0;
-  track.addEventListener('touchstart', e => {
-    tx0 = e.touches[0].clientX;
-    ty0 = e.touches[0].clientY;
+  /* ── Swipe (Pointer Events) ── */
+  let pId = null, sx = 0, sy = 0;
+  wrapper.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (pId !== null) return;
+    pId = e.pointerId;
+    sx = e.clientX; sy = e.clientY;
+    try { wrapper.setPointerCapture(pId); } catch(_) {}
     clearInterval(timer);
-  }, { passive: true });
-  track.addEventListener('touchmove', e => {
-    const dx = Math.abs(e.touches[0].clientX - tx0);
-    const dy = Math.abs(e.touches[0].clientY - ty0);
-    if (dx > dy && dx > 8) e.preventDefault();
-  }, { passive: false });
-  track.addEventListener('touchend', e => {
-    const d = tx0 - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 40) d > 0 ? next() : prev();
+  });
+  wrapper.addEventListener('pointerup', e => {
+    if (e.pointerId !== pId) return;
+    pId = null;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
     timer = setInterval(next, 5000);
-  }, { passive: true });
-  track.addEventListener('touchcancel', () => { timer = setInterval(next, 5000); });
+  });
+  wrapper.addEventListener('pointercancel', e => {
+    if (e.pointerId !== pId) return;
+    pId = null;
+    timer = setInterval(next, 5000);
+  });
 
   let resizeT;
   window.addEventListener('resize', () => {
@@ -488,23 +501,30 @@ if (hamburger) {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  let tx0 = 0, ty0 = 0;
-  track.addEventListener('touchstart', e => {
-    tx0 = e.touches[0].clientX;
-    ty0 = e.touches[0].clientY;
+  /* ── Swipe (Pointer Events) ── */
+  let pId = null, sx = 0, sy = 0;
+  wrapper.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (pId !== null) return;
+    pId = e.pointerId;
+    sx = e.clientX; sy = e.clientY;
+    try { wrapper.setPointerCapture(pId); } catch(_) {}
     clearInterval(timer);
-  }, { passive: true });
-  track.addEventListener('touchmove', e => {
-    const dx = Math.abs(e.touches[0].clientX - tx0);
-    const dy = Math.abs(e.touches[0].clientY - ty0);
-    if (dx > dy && dx > 8) e.preventDefault();
-  }, { passive: false });
-  track.addEventListener('touchend', e => {
-    const d = tx0 - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 40) d > 0 ? next() : prev();
+  });
+  wrapper.addEventListener('pointerup', e => {
+    if (e.pointerId !== pId) return;
+    pId = null;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
     timer = setInterval(next, INTERVAL);
-  }, { passive: true });
-  track.addEventListener('touchcancel', () => { timer = setInterval(next, INTERVAL); });
+  });
+  wrapper.addEventListener('pointercancel', e => {
+    if (e.pointerId !== pId) return;
+    pId = null;
+    timer = setInterval(next, INTERVAL);
+  });
 
   let resizeT;
   window.addEventListener('resize', () => {
