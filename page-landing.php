@@ -45,7 +45,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <a href="#equipe">Equipe</a>
       <a href="#contato">Contato</a>
     </nav> 
-    <a href="#contato" class="btn btn-gold navbar__cta">Falar com especialista</a>
+    <a href="https://wa.me/5531983331092" target="_blank" rel="noopener" class="btn btn-gold navbar__cta">Falar com especialista</a>
     <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menu">
       <span></span><span></span><span></span>
     </button>
@@ -61,7 +61,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
       <h1 class="hero__h1">Gestão para empresas que querem crescer com <em>consistência e rentabilidade.</em></h1>
       <p class="hero__sub">Experiência construída na prática e hoje aplicada para impulsionar negócios em diversos segmentos por meio de método, informação e direcionamento estratégico.</p>
       <div class="hero__actions">
-        <a href="#contato" class="btn btn-gold">Falar com um especialista</a>
+        <a href="https://wa.me/5531983331092" target="_blank" rel="noopener" class="btn btn-gold">Falar com um especialista</a>
         <a href="#solucoes" class="btn btn-outline">Conheça nossas soluções</a>
       </div>
     </div>
@@ -313,7 +313,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-2.png" alt="Fusões e Aquisições">
         <div class="solucao-card__body">
           <div class="solucao-card__title">Fusões e Aquisições</div>
-          <div class="solucao-card__desc">Assessoria na preparação, negociação e acompanhamento de transações de M&A.</div>
+          <div class="solucao-card__desc">Assessoria na preparação, negociação e fechamentos de transações de M&A.</div>
             <ul class="solucao-card__list">
            <li>Valuation</li>
 <li>Prospecção e negociação</li>
@@ -326,7 +326,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
         <img class="solucao-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/hangar-solucoes-1.png" alt="Gestão Financeira">
         <div class="solucao-card__body">
           <div class="solucao-card__title">Gestão Financeira</div>
-          <div class="solucao-card__desc">Reestruturação financeira, análise de custos, margens e elaboração de DRE gerencial.</div>
+          <div class="solucao-card__desc">Reestruturação financeira, análise de custos, processos de precificação e níveis de rentabilidade.</div>
         <ul class="solucao-card__list">
           <li>Planejamento e controle orçamentário</li>
 <li>Reestruturação de endividamento</li>
@@ -365,6 +365,9 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
           </ul>
         </div>
       </div>
+    </div>
+    <div class="solucoes__cta reveal">
+      <a href="https://wa.me/5531983331092" target="_blank" rel="noopener" class="btn btn-navy">Falar com um especialista</a>
     </div>
   </div>
 </section>
@@ -599,11 +602,11 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
           </div>
           <div class="porque-item reveal delay-3">
             <div class="porque-item__icon"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span class="porque-item__text">Equipe sênior em todas as etapas — nenhum projeto é delegado para juniores sem supervisão direta.</span>
+            <span class="porque-item__text">Equipe preparada em todas as etapas - equipe sênior e muito experimentada.</span>
           </div>
           <div class="porque-item reveal delay-4">
             <div class="porque-item__icon"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span class="porque-item__text">Metodologia própria testada em mais de 150 projetos em diferentes segmentos e portes de empresa.</span>
+            <span class="porque-item__text">Metodologia própria testada em mais de 300 projetos em diferentes segmentos e portes de empresa.</span>
           </div>
         </div>
       </div>

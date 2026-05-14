@@ -74,6 +74,8 @@ a { text-decoration: none; color: inherit; }
 .btn-outline-dark:hover { background: var(--carvao); color: var(--branco); }
 .btn-gold-lg { background: var(--gold); color: var(--preto-hero); border-color: var(--gold); font-size: 17px; padding: 16px 36px; }
 .btn-gold-lg:hover { background: #e8be52; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(241,205,113,.35); }
+.btn-navy { background: var(--navy-dark); color: var(--branco); border-color: var(--navy-dark); }
+.btn-navy:hover { background: #252c42; border-color: #252c42; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(49,55,79,.35); }
 
 /* ══════════════════════════════════════════════════════════ */
 /*  01. NAVBAR                                               */
@@ -398,6 +400,7 @@ a { text-decoration: none; color: inherit; }
 .solucoes__header { text-align: center; margin-bottom: 56px; }
 .solucoes__title { font-size: clamp(34px, 3.6vw, 50px); font-weight: 800; color: var(--navy-dark); letter-spacing: -.02em; }
 .solucoes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.solucoes__cta { display: flex; justify-content: center; margin-top: 40px; }
 .solucao-card { position: relative; border-radius: 10px; overflow: hidden;background: #ffffff; border: 1px solid rgba(49,55,79,.08); box-shadow: 0 4px 20px rgba(49,55,79,.10); transition: box-shadow .3s, transform .3s var(--ease); cursor: default; }
 .solucao-card:hover { box-shadow: 0 12px 40px rgba(49,55,79,.18); transform: translateY(-4px); }
 .solucao-card--large { grid-column: span 2; }
