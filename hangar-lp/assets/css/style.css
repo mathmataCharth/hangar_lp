@@ -75,7 +75,7 @@ a { text-decoration: none; color: inherit; }
 .btn-gold-lg { background: var(--gold); color: var(--preto-hero); border-color: var(--gold); font-size: 17px; padding: 16px 36px; }
 .btn-gold-lg:hover { background: #e8be52; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(241,205,113,.35); }
 .btn-navy { background: var(--navy-dark); color: var(--branco); border-color: var(--navy-dark); }
-.btn-navy:hover { background: #252c42; border-color: #252c42; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(49,55,79,.35); }
+.btn-navy:hover { background: #252c42; border-color: #252c42; color: var(--gold); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(49,55,79,.35); }
 
 /* ══════════════════════════════════════════════════════════ */
 /*  01. NAVBAR                                               */
