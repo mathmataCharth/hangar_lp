@@ -255,7 +255,7 @@ $lp_assets = get_stylesheet_directory_uri() . '/hangar-lp/assets';
             <img class="team-card__img" src="https://hangarinteligencia.com.br/wp-content/uploads/2026/05/time-hangar-2-scaled.jpg" alt="Michel Monteiro">
             <div class="team-card__body">
               <div class="team-card__role">CONSULTOR ASSOCIADO</div>
-              <div class="team-card__name">Michel Monteiro</div>
+              <div class="team-card__name">Michel Menezes</div>
               <p class="team-card__bio">Graduado em Economia pela UFMG e pós-graduando em Gestão de Negócios pela Fundação Dom Cabral. Vasta experiência na atuação de consultorias em gestão, com foco nas áreas financeira e econômica, atuando em projetos de M&A, valuation e estudos de viabilidade econômica. Tem experiência na análise de desempenho, estruturação de soluções estratégicas e apoio à tomada de decisões.</p>
             </div>
           </div>
