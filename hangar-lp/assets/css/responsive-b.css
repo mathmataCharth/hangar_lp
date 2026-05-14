@@ -335,9 +335,19 @@ body.nav-open::after {
   .logos-section { padding: 36px 0; }
   .logos-row { gap: 20px; }
   .logo-item { font-size: 14px; }
-  .logos-carousel__btn { display: none !important; }
-  .logos-carousel { padding: 0; }
-  .logos-carousel__dots { display: flex; }
+  /* Setas abaixo do carrossel, dots ocultos */
+  .logos-carousel { padding: 0; text-align: center; }
+  .logos-carousel__dots { display: none !important; }
+  .logos-carousel__btn {
+    display: inline-flex !important;
+    position: static !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 20px 8px 0 !important;
+    vertical-align: middle;
+  }
 
   /* ─── POR QUE HANGAR (idêntico à Versão A) ──────────────── */
   .porque { padding: 56px 0; }

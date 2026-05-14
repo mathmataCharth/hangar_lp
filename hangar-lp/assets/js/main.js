@@ -129,9 +129,9 @@ if (hamburger) {
       cl.style.width = `${cw}px`;
       track.insertBefore(cl, track.firstChild);
     }
-    // Clonar primeiros `visCount` após o último real
-    for (let i = 0; i < visCount; i++) {
-      const cl = real[i].cloneNode(true);
+    // Clonar primeiros `visCount*2` após o último real (buffer para snap seamless)
+    for (let i = 0; i < visCount * 2; i++) {
+      const cl = real[i % total].cloneNode(true);
       cl.classList.add('team-card--clone');
       cl.style.flex = `0 0 ${cw}px`;
       cl.style.width = `${cw}px`;
@@ -171,11 +171,11 @@ if (hamburger) {
     updateDots();
   }
 
-  /* ── Ao terminar transição: checar se chegou em clone e resetar ── */
+  /* ── Ao terminar transição: snap seamless ao "espelho" no array real ── */
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
-    if (current >= total)      { current = 0;         setPos(false); }
-    else if (current < 0)     { current = total - 1;  setPos(false); }
+    if (current >= total)      { current = current - total; setPos(false); }
+    else if (current < 0)      { current = current + total; setPos(false); }
     isAnimating = false;
     updateDots();
   });
@@ -289,8 +289,8 @@ if (hamburger) {
       cl.style.width = `${cw}px`;
       track.insertBefore(cl, track.firstChild);
     }
-    for (let i = 0; i < visCount; i++) {
-      const cl = real[i].cloneNode(true);
+    for (let i = 0; i < visCount * 2; i++) {
+      const cl = real[i % total].cloneNode(true);
       cl.classList.add('depo-card--clone');
       cl.style.flex = `0 0 ${cw}px`;
       cl.style.width = `${cw}px`;
@@ -330,8 +330,8 @@ if (hamburger) {
 
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
-    if (current >= total)      { current = 0;         setPos(false); }
-    else if (current < 0)      { current = total - 1; setPos(false); }
+    if (current >= total)      { current = current - total; setPos(false); }
+    else if (current < 0)      { current = current + total; setPos(false); }
     isAnimating = false;
     updateDots();
   });
@@ -408,7 +408,7 @@ if (hamburger) {
   const nextBtn   = carousel.querySelector('.logos-carousel__btn--next');
   const dotsWrap  = document.getElementById('logosDots');
   const GAP       = 32;
-  const INTERVAL  = 1800;
+  const INTERVAL  = 2400;
 
   let current     = 0;
   let visCount    = 0;
@@ -440,8 +440,8 @@ if (hamburger) {
       cl.style.flex = `0 0 ${cw}px`; cl.style.width = `${cw}px`;
       track.insertBefore(cl, track.firstChild);
     }
-    for (let i = 0; i < visCount; i++) {
-      const cl = real[i].cloneNode(true);
+    for (let i = 0; i < visCount * 2; i++) {
+      const cl = real[i % total].cloneNode(true);
       cl.classList.add('logos-carousel__item--clone');
       cl.style.flex = `0 0 ${cw}px`; cl.style.width = `${cw}px`;
       track.appendChild(cl);
@@ -488,8 +488,8 @@ if (hamburger) {
 
   track.addEventListener('transitionend', () => {
     const total = getRealCards().length;
-    if (current >= total)      { current = 0;         setPos(false); }
-    else if (current < 0)      { current = total - 1; setPos(false); }
+    if (current >= total)      { current = current - total; setPos(false); }
+    else if (current < 0)      { current = current + total; setPos(false); }
     isAnimating = false;
     updateDots();
   });
